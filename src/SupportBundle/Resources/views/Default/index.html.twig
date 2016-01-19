@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="panel panel-default tickets-last">
+	<div class="panel-heading">
+		<img src="{{ asset('bundles/gfi/img/icon-ticket.png') }}" alt="Vos tickets" title="Vos tickets"> Vos derniers tickets
+	</div>
+	<div class="panel-body">
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Description</th>
+						<th>Statut</th>
+						<th>Échanges</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>07 / 09 / 2015</td>
+						<td>Problème d'affichage du prix hors taxe</td>
+						<td>Nouveau</td>
+						<td align="center"><span class="glyphicon glyphicon-envelope"></span></td>
+						<td><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Voir</a></td>
+					</tr>
+					<tr>
+						<td>07 / 09 / 2015</td>
+						<td>Compatibilité avec les points fidélité</td>
+						<td>Nouveau</td>
+						<td align="center"><span class="glyphicon glyphicon-envelope"></span></td>
+						<td><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Voir</a></td>
+					</tr>
+					<tr>
+						<td>07 / 09 / 2015</td>
+						<td>Erreur lors de la sauvegarde dans le back office</td>
+						<td>En cours</td>
+						<td align="center"><span class="glyphicon glyphicon-envelope"></span></td>
+						<td><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Voir</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="bloc-visuel" id="ticket">
+	<p>
+		<a class="btn btn-default btn-lg" href="#" role="button">Ajouter un ticket</a>
+	</p>
+</div>
+<div class="bloc-visuel-space">&nbsp;</div>
+<div class="bloc-visuel" id="rappel">
+	<p>
+		<a class="btn btn-default btn-lg" href="#" role="button">Être rappelé</a>
+	</p>
+</div>
+<div class="bloc-visuel-space">&nbsp;</div>
+<div class="bloc-visuel" id="baseco">
+	<p>
+		<a class="btn btn-default btn-lg" href="#" role="button">Base de connaissance</a>
+	</p>
+</div>
+{% endblock %}

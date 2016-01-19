@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}TNT Support by Gfi{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <!-- Bootstrap -->
+        <link href="{{ asset('bundles/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/gfi/css/style.css') }}" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="container">
+            <div class="row bg-white header">
+                <div class="col-md-2 col-sm-2 logo"><img src="{{ asset('bundles/gfi/img/logo-tnt.png') }}" alt="Logo TNT" title="TNT Support" width="100%"></div>
+                <div class="col-md-8 col-sm-8 titre">Tableau de bord</div>
+                <div class="col-md-2 col-sm-2 user">John Doe <span class="glyphicon glyphicon-off"></span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-sm-2 bg-white col-gauche">
+                    <ul class="nav nav-sidebar">
+                        <li>
+                            <a href="#">
+                                <img src="{{ asset('bundles/gfi/img/icon-ticket.png') }}" alt="Vos tickets" title="Vos tickets">Vos tickets
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="{{ asset('bundles/gfi/img/icon-ticket-add.png') }}" alt=">Ajouter un ticket" title=">Ajouter un ticket">Ajouter un ticket
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="{{ asset('bundles/gfi/img/icon-rappel.png') }}" alt="Être rappelé" title="Être rappelé">Être rappelé
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="{{ asset('bundles/gfi/img/icon-baseco.png') }}" alt="Base de connaissance" title="Base de connaissance">Base de connaissance
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-10 col-sm-10">
+                    <div class="content">
+                        {% block body %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="{{ asset('bundles/bootstrap/js/bootstrap.min.js') }}"></script>
+        {% block javascripts %}
+        {% endblock %}
+    </body>
+</html>
