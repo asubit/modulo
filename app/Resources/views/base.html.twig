@@ -20,20 +20,20 @@
     <body>
         <div class="container">
             <div class="row bg-white header">
-                <div class="col-md-2 col-sm-2 logo"><img src="{{ asset('bundles/gfi/img/logo-tnt.png') }}" alt="Logo TNT" title="TNT Support" width="100%"></div>
-                <div class="col-md-8 col-sm-8 titre">Tableau de bord</div>
+                <div class="col-md-2 col-sm-2 logo"><a href="{{ path('index') }}"><img src="{{ asset('bundles/gfi/img/logo-tnt.png') }}" alt="Logo TNT" title="TNT Support" width="100%"></a></div>
+                <div class="col-md-8 col-sm-8 titre">{% block titre %}{% endblock %}</div>
                 <div class="col-md-2 col-sm-2 user">John Doe <a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span></a></div>
             </div>
             <div class="row">
                 <div class="col-md-2 col-sm-2 bg-white col-gauche">
                     <ul class="nav nav-sidebar">
                         <li>
-                            <a href="#">
+                            <a href="{{ path('ticket_index') }}">
                                 <img src="{{ asset('bundles/gfi/img/icon-ticket.png') }}" alt="Vos tickets" title="Vos tickets">Vos tickets
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ path('ticket_new') }}">
                                 <img src="{{ asset('bundles/gfi/img/icon-ticket-add.png') }}" alt=">Ajouter un ticket" title=">Ajouter un ticket">Ajouter un ticket
                             </a>
                         </li>

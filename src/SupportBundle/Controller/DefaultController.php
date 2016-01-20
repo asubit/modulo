@@ -11,7 +11,7 @@ use UserBundle\Entity\UserRepository;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="index")
      */
     public function indexAction()
     {

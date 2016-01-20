@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Rappel list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Telephone</th>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rappel in rappels %}
+            <tr>
+                <td><a href="{{ path('rappel_show', { 'id': rappel.id }) }}">{{ rappel.id }}</a></td>
+                <td>{{ rappel.telephone }}</td>
+                <td>{% if rappel.date %}{{ rappel.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if rappel.heure %}{{ rappel.heure|date('H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('rappel_show', { 'id': rappel.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('rappel_edit', { 'id': rappel.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('rappel_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

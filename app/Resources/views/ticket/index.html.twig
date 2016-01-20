@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}Vos tickets{% endblock %}
+
+{% block body %}
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Sujet</th>
+                        <th>Statut</th>
+                        <th>Échanges</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for ticket in tickets %}
+                    <tr>
+                        <td>{{ ticket.date|date("d / m / Y") }}</td>
+                        <td>{{ ticket.sujet }}</td>
+                        <td>{{ ticket.statut }}</td>
+                        <td align="center"><span class="glyphicon glyphicon-envelope"></span></td>
+                        <td><a href="{{ path('ticket_show', { 'id': ticket.id }) }}"><span class="glyphicon glyphicon-eye-open"></span> Voir</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+<p class="pull-right">
+<a class="btn btn-primary" href="{{ path('ticket_new') }}">Ajouter un tiket</a></p>
+{% endblock %}

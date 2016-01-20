@@ -46,6 +46,20 @@ class Ticket
     private $criticite;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="statut", type="string", length=255)
+     */
+    private $statut;
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    /**
      * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="tickets")
      * @ORM\JoinColumn(name="auteur_id", referencedColumnName="id")
      */
@@ -60,6 +74,11 @@ class Ticket
      * )
      */
     private $fichier;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Rappel", mappedBy="ticket")
+     */
+    private $rappel;
 
     /**
      * Get id
@@ -141,6 +160,52 @@ class Ticket
     }
 
     /**
+     * Set statut
+     *
+     * @param string $statut
+     * @return Ticket
+     */
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Get statut
+     *
+     * @return string 
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+
+    /**
+     * Set date
+     *
+     * @param datetime $date
+     * @return Ticket
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return datetime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
      * Set auteur
      *
      * @param \UserBundle\Entity\User $auteur
@@ -179,5 +244,28 @@ class Ticket
     public function getFichier()
     {
         return $this->fichier;
+    }
+
+    /**
+     * Set rappel
+     *
+     * @param \SupportBundle\Entity\Rappel $rappel
+     * @return Ticket
+     */
+    public function setRappel(\SupportBundle\Entity\Rappel $rappel = null)
+    {
+        $this->rappel = $rappel;
+
+        return $this;
+    }
+
+    /**
+     * Get rappel
+     *
+     * @return \SupportBundle\Entity\Rappel 
+     */
+    public function getRappel()
+    {
+        return $this->rappel;
     }
 }

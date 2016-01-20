@@ -46,6 +46,20 @@ class Ticket
     private $criticite;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="statut", type="string", length=255)
+     */
+    private $statut;
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    /**
      * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="tickets")
      * @ORM\JoinColumn(name="auteur_id", referencedColumnName="id")
      */
@@ -62,6 +76,11 @@ class Ticket
     private $fichier;
 
     /**
+     * @ORM\OneToOne(targetEntity="Rappel", mappedBy="ticket")
+     */
+    private $rappel;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -71,11 +90,157 @@ class Ticket
         return $this->id;
     }
 
+    /**
+     * Set sujet
+     *
+     * @param string $sujet
+     * @return Ticket
+     */
+    public function setSujet($sujet)
+    {
+        $this->sujet = $sujet;
+
+        return $this;
+    }
+
+    /**
+     * Get sujet
+     *
+     * @return string 
+     */
+    public function getSujet()
+    {
+        return $this->sujet;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Ticket
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set criticite
+     *
+     * @param string $criticite
+     * @return Ticket
+     */
+    public function setCriticite($criticite)
+    {
+        $this->criticite = $criticite;
+
+        return $this;
+    }
+
+    /**
+     * Get criticite
+     *
+     * @return string 
+     */
+    public function getCriticite()
+    {
+        return $this->criticite;
+    }
+
+    /**
+     * Set statut
+     *
+     * @param string $statut
+     * @return Ticket
+     */
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Get statut
+     *
+     * @return string 
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+
+    /**
+     * Set date
+     *
+     * @param datetime $date
+     * @return Ticket
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return datetime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set auteur
+     *
+     * @param \UserBundle\Entity\User $auteur
+     * @return Ticket
+     */
+    public function setAuteur(\UserBundle\Entity\User $auteur = null)
+    {
+        $this->auteur = $auteur;
+
+        return $this;
+    }
+
+    /**
+     * Get auteur
+     *
+     * @return \UserBundle\Entity\User 
+     */
+    public function getAuteur()
+    {
+        return $this->auteur;
+    }
+
+    /**
+     * Set fichier
+     *
+     */
     public function setFichier(File $file = null)
     {
         $this->fichier = $file;
     }
 
+    /**
+     * Get fichier
+     *
+     */
     public function getFichier()
     {
         return $this->fichier;

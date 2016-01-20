@@ -1,7 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block stylesheets %}
+	<style type="text/css">
+		.content{background: none !important;}
+	</style>
+{% endblock %}
 
+{% block titre %}Tableau de bord{% endblock %}
+
+{% block body %}
 <div class="panel panel-default tickets-last">
 	<div class="panel-heading">
 		<img src="{{ asset('bundles/gfi/img/icon-ticket.png') }}" alt="Vos tickets" title="Vos tickets"> Vos derniers tickets
@@ -12,7 +19,7 @@
 				<thead>
 					<tr>
 						<th>Date</th>
-						<th>Description</th>
+						<th>Sujet</th>
 						<th>Statut</th>
 						<th>Échanges</th>
 						<th></th>
