@@ -1,0 +1,83 @@
+<?php
+
+namespace SupportBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Ticket
+ *
+ * @ORM\Table(name="ticket")
+ * @ORM\Entity(repositoryClass="SupportBundle\Repository\TicketRepository")
+ */
+class Ticket
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank(message="Le sujet est obligatoire.")
+     * @ORM\Column(name="sujet", type="string", length=255)
+     */
+    private $sujet;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="criticite", type="string", length=255, nullable=true)
+     */
+    private $criticite;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="tickets")
+     * @ORM\JoinColumn(name="auteur_id", referencedColumnName="id")
+     */
+    protected $auteur;
+
+    /**
+     * @Assert\File(
+     *     maxSize = "2048k",
+     *     maxSizeMessage = "Le poids maximum authorisé est 2M.",
+     *     mimeTypes = {"application/pdf", "application/x-pdf", "application/gzip", "application/zip" ,"image/jp2", "image/png"},
+     *     mimeTypesMessage = "Les formats authorisés sont : PDF, GZIP, ZIP, JPG ou PNG."
+     * )
+     */
+    private $fichier;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setFichier(File $file = null)
+    {
+        $this->fichier = $file;
+    }
+
+    public function getFichier()
+    {
+        return $this->fichier;
+    }
+}

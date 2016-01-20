@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <!-- Bootstrap -->
+        <link href="{{ asset('bundles/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <!-- Custom -->
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+
+        {% for type, messages in app.session.flashBag.all %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type }}">
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <div class="container">
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+        </div>
+    </body>
+</html>
