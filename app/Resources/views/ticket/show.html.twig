@@ -1,13 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Ticket</h1>
+{% block titre %}Ticket N°{{ ticket.id }}{% endblock %}
 
-    <table>
+{% block body %}
+    {% set rappel = ticket.rappel %}
+    <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ ticket.id }}</td>
+                <th>#</th>
+                <td>N°{{ ticket.id }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ ticket.statut }}</td>
             </tr>
             <tr>
                 <th>Sujet</th>
@@ -24,10 +29,31 @@
         </tbody>
     </table>
 
+    {% if rappel %}
+    <h1>Rappel</h1>
+    <table>
+        <tbody>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ rappel.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if rappel.date %}{{ rappel.date|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Heure</th>
+                <td>{% if rappel.heure %}{{ rappel.heure|date('H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% endif %}
+
     <ul>
         <li>
             <a href="{{ path('ticket_index') }}">Back to the list</a>
         </li>
+        {% if is_granted('ROLE_ADMIN') %}
         <li>
             <a href="{{ path('ticket_edit', { 'id': ticket.id }) }}">Edit</a>
         </li>
@@ -36,5 +62,6 @@
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
+        {% endif %}
     </ul>
 {% endblock %}

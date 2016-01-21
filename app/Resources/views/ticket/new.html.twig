@@ -1,8 +1,35 @@
 {% extends 'base.html.twig' %}
 
+{% block titre %}Ajouter un ticket{% endblock %}
+
 {% block body %}
 
     {{ form_start(form) }}
+		<div class="form-group">
+			<label for="{{ form.sujet.vars.id }}">{{ form_label(form.sujet) }}</label>
+			{{ form_errors(form.sujet) }}
+			{{ form_widget(form.sujet, {'attr': {'class': 'form-control'}}) }}
+		</div>
+		<div class="form-group">
+			<label for="{{ form.description.vars.id }}">{{ form_label(form.description) }}</label>
+			{{ form_errors(form.description) }}
+			{{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+		</div>
+		<div class="form-group">
+			<label for="{{ form.criticite.vars.id }}">{{ form_label(form.criticite) }}</label>
+			{{ form_errors(form.criticite) }}
+			{{ form_widget(form.criticite, {'attr': {'class': 'form-control'}}) }}
+		</div>
+		<div class="form-group">
+			<label for="{{ form.fichier.vars.id }}">{{ form_label(form.fichier) }}</label>
+			{{ form_errors(form.fichier) }}
+			{{ form_widget(form.fichier, {'attr': {'class': 'form-control'}}) }}
+		</div>
+		<div style="display:none;">
+			<label for="{{ form.date.vars.id }}">{{ form_label(form.date) }}</label>
+			{{ form_errors(form.date) }}
+			{{ form_widget(form.date, {'attr': {'class': 'form-control'}}) }}
+		</div>
         {{ form_widget(form) }}
         <input type="submit" value="Create" />
     {{ form_end(form) }}

@@ -6,8 +6,16 @@
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ rappel.id }}</td>
+                <th>Sujet</th>
+                <td>{{ rappel.ticket.sujet }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{% if rappel.ticket.description %}{{ rappel.ticket.description }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Criticite</th>
+                <td>{% if rappel.ticket.criticite %}{{ rappel.ticket.criticite }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Telephone</th>
@@ -28,6 +36,7 @@
         <li>
             <a href="{{ path('rappel_index') }}">Back to the list</a>
         </li>
+        {% if is_granted('ROLE_ADMIN') %}
         <li>
             <a href="{{ path('rappel_edit', { 'id': rappel.id }) }}">Edit</a>
         </li>
@@ -36,5 +45,6 @@
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
+        {% endif %}
     </ul>
 {% endblock %}

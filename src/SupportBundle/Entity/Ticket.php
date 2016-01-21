@@ -24,6 +24,13 @@ class Ticket
     private $id;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_redmine", type="boolean", nullable=true)
+     */
+    private $isRedmine;
+
+    /**
      * @var string
      *
      * @Assert\NotBlank(message="Le sujet est obligatoire.")
@@ -76,7 +83,7 @@ class Ticket
     private $fichier;
 
     /**
-     * @ORM\OneToOne(targetEntity="Rappel", mappedBy="ticket")
+     * @ORM\OneToOne(targetEntity="Rappel", mappedBy="ticket", cascade={"persist"})
      */
     private $rappel;
 
@@ -88,6 +95,29 @@ class Ticket
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set isRedmine
+     *
+     * @param boolean $isRedmine
+     * @return Ticket
+     */
+    public function setIsRedmine($isRedmine)
+    {
+        $this->isRedmine = $isRedmine;
+
+        return $this;
+    }
+
+    /**
+     * Get isRedmine
+     *
+     * @return boolean 
+     */
+    public function getIsRedmine()
+    {
+        return $this->isRedmine;
     }
 
     /**

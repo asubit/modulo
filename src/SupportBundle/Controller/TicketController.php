@@ -36,7 +36,7 @@ class TicketController extends Controller
     /**
      * Creates a new Ticket entity.
      *
-     * @Route("/new", name="ticket_new")
+     * @Route("/ajout", name="ticket_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)

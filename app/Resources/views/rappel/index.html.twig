@@ -1,43 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Rappel list</h1>
+{% block titre %}Vos rappels{% endblock %}
 
-    <table>
+{% block body %}
+<div class="table-responsive">
+    <table class="table table-striped table-ticket">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Date</th>
+                <th>Sujet</th>
+                <th>Statut</th>
                 <th>Telephone</th>
                 <th>Date</th>
                 <th>Heure</th>
-                <th>Actions</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
         {% for rappel in rappels %}
             <tr>
-                <td><a href="{{ path('rappel_show', { 'id': rappel.id }) }}">{{ rappel.id }}</a></td>
+                <td>{{ rappel.ticket.date|date("d / m / Y") }}</td>
+                <td>{{ rappel.ticket.sujet }}</td>
+                <td>{{ rappel.ticket.statut }}</td>
                 <td>{{ rappel.telephone }}</td>
                 <td>{% if rappel.date %}{{ rappel.date|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if rappel.heure %}{{ rappel.heure|date('H:i:s') }}{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('rappel_show', { 'id': rappel.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('rappel_edit', { 'id': rappel.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('rappel_show', { 'id': rappel.id }) }}"><span class="glyphicon glyphicon-eye-open"></span> Voir</a>
+                    {% if is_granted('ROLE_ADMIN') %}<a href="{{ path('rappel_edit', { 'id': rappel.id }) }}">Modifier</a>{% endif %}
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+</div>
 
-    <ul>
-        <li>
-            <a href="{{ path('rappel_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+<p class="pull-right">
+    <a class="btn btn-primary" href="{{ path('rappel_new') }}">Ajouter un rappel</a>
+</p>
 {% endblock %}

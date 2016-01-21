@@ -43,7 +43,7 @@ class Rappel
     private $heure;
 
     /**
-     * @ORM\OneToOne(targetEntity="Ticket", inversedBy="rappel")
+     * @ORM\OneToOne(targetEntity="Ticket", inversedBy="rappel", cascade={"persist"})
      * @ORM\JoinColumn(name="ticket_id", referencedColumnName="id")
      */
     private $ticket;

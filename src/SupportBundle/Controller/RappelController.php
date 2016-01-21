@@ -8,6 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use SupportBundle\Entity\Rappel;
 use SupportBundle\Form\RappelType;
+use SupportBundle\Entity\Ticket;
+use SupportBundle\Form\TicketType;
 
 /**
  * Rappel controller.
@@ -36,18 +38,24 @@ class RappelController extends Controller
     /**
      * Creates a new Rappel entity.
      *
-     * @Route("/new", name="rappel_new")
+     * @Route("/ajout", name="rappel_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
         $rappel = new Rappel();
+        //$ticket = new Ticket();
         $form = $this->createForm('SupportBundle\Form\RappelType', $rappel);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            //$rappel->setTicket($ticket);
             $em->persist($rappel);
+
+            /*$ticket->setRappel($rappel);
+            $em->persist($ticket);*/
+
             $em->flush();
 
             return $this->redirectToRoute('rappel_show', array('id' => $rappel->getId()));

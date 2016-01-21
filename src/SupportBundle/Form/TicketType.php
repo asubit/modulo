@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use SupportBundle\Form\DataTransformer\DateTimeToStringTransformer;
 
 class TicketType extends AbstractType
 {
@@ -27,6 +29,12 @@ class TicketType extends AbstractType
                 'choices_as_values' => true,
             ))
             ->add('fichier', 'file', array('required' => false))
+            ->add('statut', new HiddenType(), array(
+                'data' => 'Nouveau',
+            ))
+            ->add('date', null, array(
+                'attr'=>array('style'=>'display:none;')
+            ))
         ;
     }
     

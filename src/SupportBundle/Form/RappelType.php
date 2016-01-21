@@ -15,10 +15,10 @@ class RappelType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('ticket', new TicketType())
             ->add('telephone')
             ->add('date', 'date')
             ->add('heure', 'time')
-            ->add('ticket')
         ;
     }
     
