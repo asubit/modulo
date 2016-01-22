@@ -48,20 +48,14 @@
         </tbody>
     </table>
     {% endif %}
+<p class="pull-right">
+        <a href="{{ path('ticket_index') }}" class="btn btn-primary">Vos tickets</a>
 
-    <ul>
-        <li>
-            <a href="{{ path('ticket_index') }}">Back to the list</a>
-        </li>
         {% if is_granted('ROLE_ADMIN') %}
-        <li>
-            <a href="{{ path('ticket_edit', { 'id': ticket.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
+            <a class="btn btn-warning" href="{{ path('ticket_edit', { 'id': ticket.id }) }}">Modifier</a>
+            <p>{{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="btn btn-danger">
+            {{ form_end(delete_form) }}</p>
         {% endif %}
-    </ul>
+        </p>
 {% endblock %}

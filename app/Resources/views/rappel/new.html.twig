@@ -1,16 +1,69 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ asset('bundles/gfi/css/input-file.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block titre %}
+    Être rappelé
+{% endblock %}
+
 {% block body %}
-    <h1>Rappel creation</h1>
+    {% set prototype_ticket = form.ticket %}
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+        <div class="form-group">
+            <label for="{{ prototype_ticket.sujet.vars.id }}">{{ form_label(prototype_ticket.sujet) }} *</label>
+            {{ form_errors(prototype_ticket.sujet) }}
+            {{ form_widget(prototype_ticket.sujet, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            <label for="{{ prototype_ticket.description.vars.id }}">{{ form_label(prototype_ticket.description) }}</label>
+            {{ form_errors(prototype_ticket.description) }}
+            {{ form_widget(prototype_ticket.description, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            <label for="{{ prototype_ticket.criticite.vars.id }}">{{ form_label(prototype_ticket.criticite) }}</label>
+            {{ form_errors(prototype_ticket.criticite) }}
+            {{ form_widget(prototype_ticket.criticite, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            <label>{{ form_label(prototype_ticket.fichier) }}</label>
+            <div class="input-file-container">
+                {{ form_widget(prototype_ticket.fichier, {'attr': {'class': 'input-file', 'id': 'my-file'}}) }}
+                <label for="my-file" class="input-file-trigger pull-right" tabindex="0">Choisir un fichier...</label>
+                <p class="file-return"></p>
+            </div>
+            {{ form_errors(prototype_ticket.fichier) }}
+        </div>
+        <div style="display:none;">
+            <label for="{{ prototype_ticket.date.vars.id }}">{{ form_label(prototype_ticket.date) }}</label>
+            {{ form_errors(prototype_ticket.date) }}
+            {{ form_widget(prototype_ticket.date, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.telephone.vars.id }}">{{ form_label(form.telephone) }} *</label>
+            {{ form_errors(form.telephone) }}
+            {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.date.vars.id }}">{{ form_label(form.date) }} *</label>
+            {{ form_errors(form.date) }}
+            {{ form_widget(form.date, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.heure.vars.id }}">{{ form_label(form.heure) }} *</label>
+            {{ form_errors(form.heure) }}
+            {{ form_widget(form.heure, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        {{ form_widget(form._token) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('rappel_index') }}">Back to the list</a>
-        </li>
-    </ul>
+
+        {{ form_widget(form, {'attr': {'style': 'display: none;'}}) }}
+        <input class="btn btn-primary pull-right" type="submit" value="Enregistrer" />
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/gfi/js/input-file.js') }}"></script>
 {% endblock %}

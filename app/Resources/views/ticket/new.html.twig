@@ -1,12 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block titre %}Ajouter un ticket{% endblock %}
+{% block stylesheets %}
+	<link href="{{ asset('bundles/gfi/css/input-file.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block titre %}
+	Ajouter un ticket
+{% endblock %}
 
 {% block body %}
 
     {{ form_start(form) }}
 		<div class="form-group">
-			<label for="{{ form.sujet.vars.id }}">{{ form_label(form.sujet) }}</label>
+			<label for="{{ form.sujet.vars.id }}">{{ form_label(form.sujet) }} *</label>
 			{{ form_errors(form.sujet) }}
 			{{ form_widget(form.sujet, {'attr': {'class': 'form-control'}}) }}
 		</div>
@@ -21,22 +27,28 @@
 			{{ form_widget(form.criticite, {'attr': {'class': 'form-control'}}) }}
 		</div>
 		<div class="form-group">
-			<label for="{{ form.fichier.vars.id }}">{{ form_label(form.fichier) }}</label>
+			<label>{{ form_label(form.fichier) }}</label>
+			<div class="input-file-container">
+				{{ form_widget(form.fichier, {'attr': {'class': 'input-file', 'id': 'my-file'}}) }}
+				<label for="my-file" class="input-file-trigger pull-right" tabindex="0">Choisir un fichier...</label>
+				<p class="file-return"></p>
+			</div>
 			{{ form_errors(form.fichier) }}
-			{{ form_widget(form.fichier, {'attr': {'class': 'form-control'}}) }}
 		</div>
+
+
 		<div style="display:none;">
 			<label for="{{ form.date.vars.id }}">{{ form_label(form.date) }}</label>
 			{{ form_errors(form.date) }}
 			{{ form_widget(form.date, {'attr': {'class': 'form-control'}}) }}
 		</div>
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input class="btn btn-primary pull-right" type="submit" value="Enregistrer" />
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('ticket_index') }}">Back to the list</a>
-        </li>
-    </ul>
+
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('bundles/gfi/js/input-file.js') }}"></script>
 {% endblock %}
