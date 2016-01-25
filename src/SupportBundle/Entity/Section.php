@@ -3,6 +3,7 @@
 namespace SupportBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Section
@@ -35,7 +36,6 @@ class Section
 
     public function __construct()
     {
-        parent::__construct();
         $this->articles = new ArrayCollection();
     }
 

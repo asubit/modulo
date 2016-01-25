@@ -18,7 +18,7 @@ class SectionController extends Controller
      * Lists all Section entities.
      *
      * @Route("/base-de-connaissance", name="section_index")
-     * @Method("GET")
+     * @Method({"GET", "POST"})
      */
     public function indexAction()
     {

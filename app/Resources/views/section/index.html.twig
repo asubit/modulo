@@ -5,39 +5,67 @@
 {% block body %}
 
 <div class="panel-group" id="sections" role="tablist" aria-multiselectable="true">
-  {% for section in sections %}
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="section{{ section.id }}">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#sections" href="#collapse{{section.id}}" aria-expanded="false" aria-controls="collapse{{section.id}}">
-          {{ section.titre }}
-        </a>
-      </h4>
-    </div>
-    <div id="collapse{{section.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="section{{ section.id }}">
-      <div class="panel-body">
-        <div class="panel-group" id="section{{ section.id }}articles" role="tablist" aria-multiselectable="true">
-            {% for article in section.articles %}
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="article{{ article.id }}">
-                      <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#section{{ section.id }}articles" href="#{{ article.id }}" aria-expanded="false" aria-controls="{{ article.id }}">
-                          {{ article.titre }}
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="{{ article.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="article{{ article.id }}">
-                      <div class="panel-body">
-                        {{ article.contenu }}
-                      </div>
+    {% for section in sections %}
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="section{{ section.id }}">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#sections" href="#collapse{{section.id}}" aria-expanded="false" aria-controls="collapse{{section.id}}">
+                    {{ section.titre }}
+                </a>
+            </h4>
+        </div>
+        <div id="collapse{{section.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="section{{ section.id }}">
+            <div class="panel-body">
+                <div class="panel-group" id="section{{ section.id }}articles" role="tablist" aria-multiselectable="true">
+                    {% for article in section.articles %}
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="article{{ article.id }}">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#section{{ section.id }}articles" href="#{{ article.id }}" aria-expanded="false" aria-controls="{{ article.id }}">
+                                        {{ article.titre }}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="{{ article.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="article{{ article.id }}">
+                                <div class="panel-body">
+                                    {{ article.contenu }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="newArticleForSection{{ section.id }}">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#section{{ section.id }}articles" href="#formArticle{{ section.id }}" aria-expanded="false" aria-controls="formArticle{{ section.id }}">
+                                    <span class="glyphicon glyphicon-plus"></span> Ajouter un article
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="formArticle{{ section.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="newArticleForSection{{ section.id }}">
+                            <div class="panel-body">
+                                {{ render(controller('SupportBundle:Article:new')) }}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            {% endfor %}
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  {% endfor %}
+    {% endfor %}
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="newSection">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#sections" href="#formSection" aria-expanded="false" aria-controls="formSection">
+                    <span class="glyphicon glyphicon-plus"></span> Ajouter une section
+                </a>
+            </h4>
+        </div>
+        <div id="formSection" class="panel-collapse collapse" role="tabpanel" aria-labelledby="newSection">
+            <div class="panel-body">
+                {{ render(controller('SupportBundle:Section:new')) }}
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

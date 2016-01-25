@@ -17,7 +17,7 @@ class ArticleType extends AbstractType
         $builder
             ->add('titre')
             ->add('contenu')
-            ->add('section')
+            ->add('section', 'entity', array('class' => 'SupportBundle:Section', 'property' => 'titre'))
         ;
     }
     

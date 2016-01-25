@@ -25,20 +25,16 @@ class DefaultController extends Controller
     {
     	$status = "KO";
 
-    	$username = 'admin';
-    	$password = 'admin';
-    	$email = 'antoine.subit@gfi.fr';
+    	$username = 'user';
+    	$password = 'user';
+    	$email = 'user@gfi.fr';
     	$enabled = 1;
-    	$isSuperAdmin = 1;
+    	$isSuperAdmin = 0;
 
     	$em = $this->getDoctrine()->getManager();
-		$user = $em->getRepository("UserBundle:User")->loadUserByUsername($username);
-
-    	if (!$user) {
-    		$user = $this->get('fos_user.util.user_manipulator')->create($username, $password, $email, $enabled, $isSuperAdmin);
-    		$status = "OK";
-    	} else {$status=$status.". admin déjà créé.";}
-
+        $user = $this->get('fos_user.util.user_manipulator')->create($username, $password, $email, $enabled, $isSuperAdmin);
+        $status = "OK";
+        
         return $this->render('SupportBundle:Default:load.html.twig', array('status' => $status));
     }
 }
