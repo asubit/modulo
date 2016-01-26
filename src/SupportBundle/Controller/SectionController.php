@@ -48,7 +48,7 @@ class SectionController extends Controller
             $em->persist($section);
             $em->flush();
 
-            return $this->redirectToRoute('section_show', array('id' => $section->getId()));
+            return $this->redirectToRoute('section_index');
         }
 
         return $this->render('section/new.html.twig', array(

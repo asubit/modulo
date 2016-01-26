@@ -24,6 +24,13 @@ class User extends BaseUser
      */
     protected $tickets;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_vip", type="boolean", nullable=true)
+     */
+    private $isVIP;
+
     public function __construct()
     {
         parent::__construct();
