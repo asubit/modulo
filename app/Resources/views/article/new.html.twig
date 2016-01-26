@@ -1,6 +1,6 @@
 {% set route = path('article_new') %}
 
-{{ form_start(form, {'attr': {'class': 'form-inline', 'action': route}}) }}
+{{ form_start(form, {'attr': {'action': route}}) }}
     <div class="form-group">
         <div class="input-group">
             {{ form_widget(form.titre, {'attr': {'class': 'form-control', 'placeholder': 'Titre'}}) }}

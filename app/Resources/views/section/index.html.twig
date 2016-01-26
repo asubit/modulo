@@ -2,7 +2,7 @@
 
 {% block tinymce %}
     <script src="{{ asset('bundles/tinymce/js/tinymce/tinymce.min.js') }}"></script>
-    <script>tinymce.init({ selector:'textarea' });</script>
+    <script>tinymce.init({ selector:'textarea', menubar: false });</script>
 {% endblock %}
 
 {% block titre %}Base de connaissance{% endblock %}
@@ -30,7 +30,7 @@
                                         {{ article.titre }}
                                     </a>
                                     {% if is_granted('ROLE_ADMIN') %}
-                                    <p class="pull-right"><a href="#">Éditer</a></p>
+                                    <p class="pull-right"><a href="{{ path('article_edit', { 'id': article.id }) }}">Éditer</a></p>
                                     {% endif %}
                                 </h4>
                             </div>
