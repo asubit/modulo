@@ -31,7 +31,7 @@
 
     {% if rappel %}
     <h1>Rappel</h1>
-    <table>
+    <table class="table">
         <tbody>
             <tr>
                 <th>Telephone</th>
@@ -43,7 +43,7 @@
             </tr>
             <tr>
                 <th>Heure</th>
-                <td>{% if rappel.heure %}{{ rappel.heure|date('H:i:s') }}{% endif %}</td>
+                <td>{% if rappel.heure %}{{ rappel.heure|date('H') }}h{{ rappel.heure|date('i') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>

@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class TicketRepository extends EntityRepository
 {
+	public function findLast($limit = 5)
+	{
+	    return $this->getEntityManager()
+        ->createQuery('SELECT t FROM SupportBundle:Ticket t ORDER BY t.id DESC')
+        ->setMaxResults($limit)
+        ->getResult();
+	}
 }

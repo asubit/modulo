@@ -15,7 +15,11 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('SupportBundle:Default:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $tickets = $em->getRepository('SupportBundle:Ticket')->findLast(5);
+
+        return $this->render('SupportBundle:Default:index.html.twig', array('tickets' => $tickets));
     }
 
     /**

@@ -58,7 +58,7 @@ class RappelController extends Controller
 
             $em->flush();
 
-            return $this->redirectToRoute('rappel_show', array('id' => $rappel->getId()));
+            return $this->redirectToRoute('ticket_show', array('id' => $rappel->getTicket()->getId()));
         }
 
         return $this->render('rappel/new.html.twig', array(

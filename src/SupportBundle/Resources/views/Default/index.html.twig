@@ -25,27 +25,15 @@
 				</tr>
 			</thead>
 			<tbody>
+				{% for ticket in tickets %}
 				<tr>
-					<td>07 / 09 / 2015</td>
-					<td>Problème d'affichage du prix hors taxe</td>
-					<td>Nouveau</td>
-					<td align="center"><span class="glyphicon glyphicon-envelope"></span></td>
-					<td><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Voir</a></td>
+		            <td>{{ ticket.date|date("d / m / Y") }}</td>
+		            <td>{{ ticket.sujet }}</td>
+		            <td>{{ ticket.statut }}</td>
+		            <td align="center">{% if ticket.rappel %}<span class="glyphicon glyphicon glyphicon-headphones"></span>{% else %}<span class="glyphicon glyphicon-envelope"></span>{% endif %}</td>
+		            <td><a href="{{ path('ticket_show', { 'id': ticket.id }) }}"><span class="glyphicon glyphicon-eye-open"></span> Voir</a></td>
 				</tr>
-				<tr>
-					<td>07 / 09 / 2015</td>
-					<td>Compatibilité avec les points fidélité</td>
-					<td>Nouveau</td>
-					<td align="center"><span class="glyphicon glyphicon-envelope"></span></td>
-					<td><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Voir</a></td>
-				</tr>
-				<tr>
-					<td>07 / 09 / 2015</td>
-					<td>Erreur lors de la sauvegarde dans le back office</td>
-					<td>En cours</td>
-					<td align="center"><span class="glyphicon glyphicon-envelope"></span></td>
-					<td><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Voir</a></td>
-				</tr>
+				{% endfor %}
 			</tbody>
 		</table>
 	</div>
