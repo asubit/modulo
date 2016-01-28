@@ -30,7 +30,12 @@
                                         {{ article.titre }}
                                     </a>
                                     {% if is_granted('ROLE_ADMIN') %}
-                                    <p class="pull-right"><a href="{{ path('article_edit', { 'id': article.id }) }}">Éditer</a></p>
+                                        {#<a href="{{ path('article_edit', { 'id': article.id }) }}">Éditer</a>#}
+                                        <button type="button" class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#editModalForArticle{{ article.id }}">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                        </button>
+                                        <!-- Modal d'édition -->
+                                        {{ render(controller('GfiSupportBundle:Article:edit', {'id': article.id})) }}
                                     {% endif %}
                                 </h4>
                             </div>
