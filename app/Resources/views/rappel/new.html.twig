@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block stylesheets %}
+    <link href="{{ asset('bundles/datetimepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
     <link href="{{ asset('bundles/gfi/css/input-file.css') }}" rel="stylesheet">
 {% endblock %}
 
@@ -62,8 +63,6 @@
             {{ form_widget(form.heure, {'attr': {'class': 'form-control'}}) }}
         </div>
         {{ form_widget(form._token) }}
-
-
         {{ form_widget(form, {'attr': {'style': 'display: none;'}}) }}
         <input class="btn btn-primary pull-right" type="submit" value="Enregistrer" />
     {{ form_end(form) }}
@@ -71,4 +70,18 @@
 
 {% block javascripts %}
     <script src="{{ asset('bundles/gfi/js/input-file.js') }}"></script>
+    <script src="{{ asset('bundles/datetimepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('bundles/datetimepicker/locales/bootstrap-datepicker.fr.min.js') }}"></script>
+    <script type="text/javascript">
+$('#rappel_date input').datepicker({
+    language: "fr",
+    daysOfWeekDisabled: "0,6",
+    autoclose: true,
+    todayHighlight: true
+});
+$('#rappel_heure_hour select').datepicker({
+    format: 'LT',
+});
+
+</script>
 {% endblock %}
