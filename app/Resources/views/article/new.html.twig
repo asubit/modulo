@@ -1,22 +1,22 @@
 {% set route = path('article_new') %}
-
+<!-- Formulaire création article -->
 {{ form_start(form, {'attr': {'action': route}}) }}
-    <div class="form-group">
-        <div class="input-group">
-            {{ form_widget(form.titre, {'attr': {'class': 'form-control', 'placeholder': 'Titre'}}) }}
+    <div class="form-group col-md-6">
+        <div class="input-group" style="width:100%;">
+            {{ form_widget(form.titre, {'attr': {'class': 'form-control', 'placeholder': 'Titre', 'autofocus': 'autofocus', 'style': 'width:100%;'}}) }}
         </div>
     </div>
-    <div class="form-group">
-        <div class="input-group">
-            {{ form_widget(form.contenu, {'attr': {'class': 'form-control', 'placeholder': 'Contenu'}}) }}
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input-group">
+    <div class="form-group col-md-6">
+        <div class="input-group" style="width:100%;">
             {{ form_widget(form.section, {'attr': {'class': 'form-control'}}) }}
         </div>
     </div>
+    <div class="form-group col-md-12">
+        <div class="input-group" style="width:100%;">
+            {{ form_widget(form.contenu, {'attr': {'class': 'form-control', 'placeholder': 'Contenu'}}) }}
+        </div>
+    </div>
     {{ form_widget(form._token) }}
-    {{ form_widget(form, {'attr': {'style': 'display: none;'}}) }}
-    <button type="submit" class="btn btn-primary">Créer</button>
+    {{ form_widget(form) }}
+    <button type="submit" class="btn btn-primary pull-right">Créer</button>
 {{ form_end(form) }}

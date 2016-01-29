@@ -8,81 +8,130 @@
 {% block titre %}Base de connaissance{% endblock %}
 
 {% block body %}
-
+<!-- ============= NIVEAU 1 ============= [ Toutes les sections enregistrées ] -->
 <div class="panel-group" id="sections" role="tablist" aria-multiselectable="true">
+    <!--Toutes les sections -->
     {% for section in sections %}
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="section{{ section.id }}">
-            <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#sections" href="#collapse{{section.id}}" aria-expanded="false" aria-controls="collapse{{section.id}}">
-                    {{ section.titre }}
-                </a>
-            </h4>
-        </div>
-        <div id="collapse{{section.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="section{{ section.id }}">
-            <div class="panel-body">
-                <div class="panel-group" id="section{{ section.id }}articles" role="tablist" aria-multiselectable="true">
-                    {% for article in section.articles %}
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="article{{ article.id }}">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#section{{ section.id }}articles" href="#{{ article.id }}" aria-expanded="false" aria-controls="{{ article.id }}">
-                                        {{ article.titre }}
-                                    </a>
-                                    {% if is_granted('ROLE_ADMIN') %}
-                                        {#<a href="{{ path('article_edit', { 'id': article.id }) }}">Éditer</a>#}
-                                        <button type="button" class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#editModalForArticle{{ article.id }}">
-                                            <span class="glyphicon glyphicon-edit"></span>
-                                        </button>
-                                        <!-- Modal d'édition -->
-                                        {{ render(controller('GfiSupportBundle:Article:edit', {'id': article.id})) }}
-                                    {% endif %}
-                                </h4>
-                            </div>
-                            <div id="{{ article.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="article{{ article.id }}">
-                                <div class="panel-body">
-                                    {{ article.contenu|raw }}
+        <!-- SECTION -->
+        <div class="panel panel-default">
+            <!-- En-tête -->
+            <div class="panel-heading" role="tab" id="section{{ section.id }}">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#sections" href="#collapse{{section.id}}" aria-expanded="false" aria-controls="collapse{{section.id}}">
+                        {{ section.titre }}
+                    </a>
+                </h4>
+            </div>
+            <!-- Collapse contenu -->
+            <div id="collapse{{section.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="section{{ section.id }}">
+                <!-- Contenu -->
+                <div class="panel-body">
+                    <!-- ======================== NIVEAU 2 ======================== [ Tous les article de cette section ] -->
+                    <div class="panel-group" id="section{{ section.id }}articles" role="tablist" aria-multiselectable="true">
+                        <!-- Tous les articles -->
+                        {% for article in section.articles %}
+                            <!-- ARTICLE -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="article{{ article.id }}">
+                                    <h4 class="panel-title">
+                                        <a 
+                                            aria-controls="{{ article.id }}"
+                                            aria-expanded="false" 
+                                            class="collapsed" 
+                                            data-toggle="collapse" 
+                                            data-parent="#section{{ section.id }}articles" 
+                                            href="#{{ article.id }}" 
+                                            role="button" 
+                                        >
+                                            {{ article.titre }}
+                                        </a>
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                            {#<a href="{{ path('article_edit', { 'id': article.id }) }}">Éditer</a>#}
+                                            <button type="button" class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#editModalForArticle{{ article.id }}">
+                                                <span class="glyphicon glyphicon-edit"></span>
+                                            </button>
+                                            {# Modal d'édition #}
+                                            {{ render(controller('GfiSupportBundle:Article:edit', {'id': article.id})) }}
+                                        {% endif %}
+                                    </h4>
+                                </div>
+                                <div id="{{ article.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="article{{ article.id }}">
+                                    <div class="panel-body">
+                                        {{ article.contenu|raw }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endfor %}
-                    {% if is_granted('ROLE_ADMIN') %}
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="newArticleForSection{{ section.id }}">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#section{{ section.id }}articles" href="#formArticle{{ section.id }}" aria-expanded="false" aria-controls="formArticle{{ section.id }}">
-                                    <span class="glyphicon glyphicon-plus"></span> Ajouter un article
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="formArticle{{ section.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="newArticleForSection{{ section.id }}">
-                            <div class="panel-body">
-                                {{ render(controller('GfiSupportBundle:Article:new')) }}
+                            <!-- [ FIN ] ARTICLE -->
+                        {% endfor %}
+
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <!-- NOUVEL ARTICLE -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="newArticleForSection{{ section.id }}">
+                                    <h4 class="panel-title">
+                                        <a 
+                                            aria-controls="formArticle{{ section.id }}"
+                                            aria-expanded="false" 
+                                            class="collapsed" 
+                                            data-parent="#section{{ section.id }}articles"  
+                                            data-toggle="collapse" 
+                                            href="#formArticle{{ section.id }}" 
+                                            id="ajouterArticleDansLaSection{{ section.id }}" 
+                                            onclick="prechoisirLaSection({{ section.id }})"
+                                            role="button" 
+                                        >
+                                            <span class="glyphicon glyphicon-plus"></span> 
+                                            Ajouter un article
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="formArticle{{ section.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="newArticleForSection{{ section.id }}">
+                                    <div class="panel-body">
+                                        <!-- SupportBundle:Article:new -->
+                                        {{ render(controller('GfiSupportBundle:Article:new')) }}
+                                        <!-- [ FIN ] SupportBundle:Article:new -->
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    {% endif %}
+                            <!-- [ FIN ] NOUVEL ARTICLE -->
+                        {% endif %}
+                    </div><!-- [ FIN ] NIVEAU 2 -->
+                </div><!-- [ FIN ] Contenu -->
+            </div><!-- [ FIN ] Collapse contenu -->
+        </div>
+        <!-- [ FIN ] SECTION -->
+    {% endfor %}
+
+    <!-- Nouvelle section -->
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="newSection">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#sections" href="#formSection" aria-expanded="false" aria-controls="formSection">
+                        <span class="glyphicon glyphicon-plus"></span> Ajouter une section
+                    </a>
+                </h4>
+            </div>
+            <div id="formSection" class="panel-collapse collapse" role="tabpanel" aria-labelledby="newSection">
+                <div class="panel-body">
+                    <!-- [[ SupportBundle:Section:new => -->
+                    {{ render(controller('GfiSupportBundle:Section:new')) }}
+                    <!-- <= SupportBundle:Section:new ]] -->
                 </div>
             </div>
         </div>
-    </div>
-    {% endfor %}
-    {% if is_granted('ROLE_ADMIN') %}
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="newSection">
-            <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#sections" href="#formSection" aria-expanded="false" aria-controls="formSection">
-                    <span class="glyphicon glyphicon-plus"></span> Ajouter une section
-                </a>
-            </h4>
-        </div>
-        <div id="formSection" class="panel-collapse collapse" role="tabpanel" aria-labelledby="newSection">
-            <div class="panel-body">
-                {{ render(controller('GfiSupportBundle:Section:new')) }}
-            </div>
-        </div>
-    </div>
     {% endif %}
 </div>
+<!-- [FIN] Nouvelle section -->
+{% endblock %}
 
+{% block javascripts %}
+<script type="text/javascript">
+{#$('#ajouterArticleDansLaSection{{ section.id }} a').bind('click', function(){#}
+function prechoisirLaSection(id) {
+    console.log(id);
+    $('#article_section option[value="'+id+'"]').prop('selected', true);
+}
+   
+</script>
 {% endblock %}

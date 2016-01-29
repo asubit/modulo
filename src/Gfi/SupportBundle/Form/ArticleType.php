@@ -17,7 +17,10 @@ class ArticleType extends AbstractType
         $builder
             ->add('titre')
             ->add('contenu')
-            ->add('section', 'entity', array('class' => 'GfiSupportBundle:Section', 'property' => 'titre'))
+            ->add('section', 'entity', array(
+                'class' => 'GfiSupportBundle:Section',
+                'property' => 'titre'
+            ))
         ;
     }
     
