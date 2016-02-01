@@ -73,11 +73,11 @@ class Ticket
     protected $auteur;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     *
      * @Assert\File(
      *     maxSize = "2048k",
-     *     maxSizeMessage = "Le poids maximum authorisé est 2M.",
-     *     mimeTypes = {"application/pdf", "application/x-pdf", "application/gzip", "application/zip" ,"image/jp2", "image/png"},
-     *     mimeTypesMessage = "Les formats authorisés sont : PDF, GZIP, ZIP, JPG ou PNG."
+     *     maxSizeMessage = "Le poids maximum authorisé est 2M."
      * )
      */
     private $fichier;
@@ -262,9 +262,9 @@ class Ticket
      * Set fichier
      *
      */
-    public function setFichier(File $file = null)
+    public function setFichier($fichier)
     {
-        $this->fichier = $file;
+        $this->fichier = $fichier;
     }
 
     /**

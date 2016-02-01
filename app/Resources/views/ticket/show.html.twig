@@ -20,12 +20,18 @@
             </tr>
             <tr>
                 <th>Description</th>
-                <td>{{ ticket.description }}</td>
+                <td>{{ ticket.description|raw }}</td>
             </tr>
             <tr>
                 <th>Criticite</th>
                 <td>{{ ticket.criticite }}</td>
             </tr>
+            {% if ticket.fichier %}
+            <tr>
+                <th>Fichier</th>
+                <td><a href="{{ asset('uploads/tickets') }}/{{ ticket.fichier }}" target="_blank">{{ ticket.fichier }}</a></td>
+            </tr>
+            {% endif %}
         </tbody>
     </table>
 
@@ -39,7 +45,7 @@
             </tr>
             <tr>
                 <th>Date</th>
-                <td>{% if rappel.date %}{{ rappel.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if rappel.date %}{{ rappel.date|date('d') }} / {{ rappel.date|date('m') }} / {{ rappel.date|date('Y') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Heure</th>

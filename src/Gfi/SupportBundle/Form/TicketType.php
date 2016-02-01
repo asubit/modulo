@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class TicketType extends AbstractType
 {
@@ -27,7 +28,7 @@ class TicketType extends AbstractType
                 ),
                 'choices_as_values' => true,
             ))
-            ->add('fichier', 'file', array('required' => false))
+            ->add('fichier', new FileType(), array('required' => false))
             ->add('statut', new HiddenType(), array(
                 'data' => 'Nouveau',
             ))

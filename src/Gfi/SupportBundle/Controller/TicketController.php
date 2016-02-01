@@ -47,9 +47,20 @@ class TicketController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            // Gestion du fichier joint
+            $file = $ticket->getFichier();
+            if ($file) {
+                $fileDate = date('Y-m-d').date('H-i-s').rand(10, 99).'_';
+                $fileName = $fileDate.$file->getClientOriginalName();
+                $fileDir = $this->container->getParameter('kernel.root_dir').'/../web/uploads/tickets';
+                $file->move($fileDir, $fileName);
+                $ticket->setFichier($fileName);
+            }
+            // Gestion des données cachées
             $ticket->setAuteur($this->getUser());
             $ticket->setStatut('Nouveau');
             $ticket->setDate(new \DateTime());
+
             $em->persist($ticket);
             $em->flush();
 

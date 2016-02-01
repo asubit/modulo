@@ -17,7 +17,11 @@ class RappelType extends AbstractType
         $builder
             ->add('ticket', new TicketType())
             ->add('telephone')
-            ->add('date', 'date', array('widget' => 'text'))
+            ->add('date', 'date', array(
+                'html5'=>false,
+                'widget'=>'single_text',
+                'format' => 'dd/MM/yyyy',
+            ))
             ->add('heure', 'time')
         ;
     }

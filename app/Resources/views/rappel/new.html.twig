@@ -52,7 +52,7 @@
             {{ form_errors(form.telephone) }}
             {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
         </div>
-        <div class="form-group">
+        <div class="form-group" id="rappel_date_identifier">
             <label for="{{ form.date.vars.id }}">{{ form_label(form.date) }} *</label>
             {{ form_errors(form.date) }}
             {{ form_widget(form.date, {'attr': {'class': 'form-control'}}) }}
@@ -73,7 +73,7 @@
     <script src="{{ asset('bundles/datetimepicker/js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('bundles/datetimepicker/locales/bootstrap-datepicker.fr.min.js') }}"></script>
     <script type="text/javascript">
-$('#rappel_date input').datepicker({
+$('#rappel_date_identifier input').datepicker({
     language: "fr",
     daysOfWeekDisabled: "0,6",
     autoclose: true,
