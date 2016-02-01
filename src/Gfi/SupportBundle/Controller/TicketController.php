@@ -50,7 +50,7 @@ class TicketController extends Controller
             // Gestion du fichier joint
             $file = $ticket->getFichier();
             if ($file) {
-                $fileDate = date('Y-m-d').date('H-i-s').rand(10, 99).'_';
+                $fileDate = date('Y'). date('m'). date('d').date('H'). date('i'). date('s').rand(10, 99).'_';
                 $fileName = $fileDate.$file->getClientOriginalName();
                 $fileDir = $this->container->getParameter('kernel.root_dir').'/../web/uploads/tickets';
                 $file->move($fileDir, $fileName);
