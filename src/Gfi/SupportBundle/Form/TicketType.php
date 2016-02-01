@@ -28,12 +28,17 @@ class TicketType extends AbstractType
                 ),
                 'choices_as_values' => true,
             ))
-            ->add('fichier', new FileType(), array('required' => false))
+            ->add('fichier', new FileType(), array(
+                'required' => false,
+                'data_class' => null
+            ))
             ->add('statut', new HiddenType(), array(
                 'data' => 'Nouveau',
             ))
             ->add('date', null, array(
-                'attr'=>array('style'=>'display:none;')
+                'attr'=>array(
+                    'style'=>'display:none;'
+                )
             ))
         ;
     }

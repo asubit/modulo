@@ -50,16 +50,16 @@ class TicketController extends Controller
             // Gestion du fichier joint
             $file = $ticket->getFichier();
             if ($file) {
-                $fileDate = date('Y'). date('m'). date('d').date('H'). date('i'). date('s').rand(10, 99).'_';
-                $fileName = $fileDate.$file->getClientOriginalName();
-                $fileDir = $this->container->getParameter('kernel.root_dir').'/../web/uploads/tickets';
-                $file->move($fileDir, $fileName);
-                $ticket->setFichier($fileName);
+                $fileDate = date('Y'). date('m'). date('d').date('H'). date('i'). date('s').rand(10, 99).'_';// N° unique
+                $fileName = $fileDate.$file->getClientOriginalName();// Nom du fichier original
+                $fileDir = $this->container->getParameter('kernel.root_dir').'/../web/uploads/tickets';// Dossier d'enregistrement
+                $file->move($fileDir, $fileName);// Uplaod du fichier
+                $ticket->setFichier($fileName);// Enregistrement
             }
             // Gestion des données cachées
-            $ticket->setAuteur($this->getUser());
-            $ticket->setStatut('Nouveau');
-            $ticket->setDate(new \DateTime());
+            $ticket->setAuteur($this->getUser());// Utilisateur connecté au moment de la création
+            $ticket->setStatut('Nouveau');// Par défaut puis géré par RedMine
+            $ticket->setDate(new \DateTime());// Date de création
 
             $em->persist($ticket);
             $em->flush();
