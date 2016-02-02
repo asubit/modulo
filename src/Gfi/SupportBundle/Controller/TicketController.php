@@ -64,6 +64,13 @@ class TicketController extends Controller
             $em->persist($ticket);
             $em->flush();
 
+            $this->forward('redmine.manager:createIssueAction', array(
+                $ticket->getId(),// ticket_id,
+                $ticket->getCriticite(),// priority_name,
+                $ticket->getSujet(),// subject,
+                $ticket->getDescription()// description
+            ));
+
             return $this->redirectToRoute('ticket_show', array('id' => $ticket->getId()));
         }
 
@@ -81,6 +88,10 @@ class TicketController extends Controller
      */
     public function showAction(Ticket $ticket)
     {
+        $issue_id = 1406;
+        $redmineTicket = $this->forward('redmine.manager:showIssueAction', array('issue_id' => $issue_id));
+        
+
         $deleteForm = $this->createDeleteForm($ticket);
 
         return $this->render('ticket/show.html.twig', array(

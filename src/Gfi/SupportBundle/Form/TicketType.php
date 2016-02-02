@@ -22,9 +22,9 @@ class TicketType extends AbstractType
             ->add('description')
             ->add('criticite', new ChoiceType(), array(
                 'choices'  => array(
-                    'Mineur' => 'mineur',
-                    'Majeur' => 'majeur',
-                    'Bloquant' => 'bloquant',
+                    'Mineur' => 'Mineur',
+                    'Majeur' => 'Majeur',
+                    'Bloquant' => 'Bloquant',
                 ),
                 'choices_as_values' => true,
             ))
