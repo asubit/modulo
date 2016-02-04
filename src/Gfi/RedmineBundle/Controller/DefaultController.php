@@ -13,8 +13,9 @@ class DefaultController extends Controller
     public function __construct(Container $container) {
         $this->container = $container;
     }
+
 	/*
-	 * Initialisation du Client Redmine
+	 * INIT - Initialisation du Client Redmine
 	 */
 	public function init()
 	{
@@ -29,7 +30,7 @@ class DefaultController extends Controller
 	}
 
 	/*
-	 * Retourne l'identifiant Redmine de la criticité avec son nom
+	 * CRITICITÉ - Retourne l'identifiant Redmine de la criticité avec son nom
 	 */
 	public function getPriorityIdByName($priority_name)
 	{
@@ -68,15 +69,14 @@ class DefaultController extends Controller
 	/*
 	 * TICKET - Créer un ticket
 	 */
-    public function createIssueAction($ticket_id, $priority_name, $subject = null, $description = null)
+    public function createIssueAction($priority_name, $subject = null, $description = null)
     {
-    	$redmineUserAssigneId = $this->getParameter('redmine_assigne_user_id');
-    	$redmineProjectId = $this->getParameter('redmine_project_id');
+    	$redmineUserAssigneId = $this->container->getParameter('redmine_assigne_user_id');
+    	$redmineProjectId = $this->container->getParameter('redmine_project_id');
     	
     	$priority = $this->getPriorityIdByName($priority_name);
 
     	$result = $this->init()->api('issue')->create(array(
-			'cf_2016' => $ticket_id,
 			'project_id' => $redmineProjectId,
 			'priority' => $priority,
 			'subject' => $subject,
@@ -84,7 +84,7 @@ class DefaultController extends Controller
 			'assigned_to_id' => $redmineUserAssigneId,
 		));
 
-    	return $result;
+    	return new Response($result->id);
     }
 
 	/*
@@ -94,9 +94,20 @@ class DefaultController extends Controller
     {
     	if ($issue_id) {
     		$result = $this->init()->api('issue')->show($issue_id);
-    		/*echo '<pre>';
-	        var_dump($result['issue']);
-	        echo '</pre>';*/
+    	} else {
+    		$result = null;
+    	}
+
+    	return $result;
+    }
+
+	/*
+	 * TICKET - Supprime un ticket
+	 */
+    public function deleteIssueAction($issue_id)
+    {
+    	if ($issue_id) {
+    		$result = $this->init()->api('issue')->remove($issue_id);
     	} else {
     		$result = null;
     	}
@@ -125,8 +136,8 @@ class DefaultController extends Controller
 		    'project_id' => 101,
 		));
         echo'<pre>';
-        var_dump($result['issues'][0]);
-        //var_dump($result['issues']);
+        var_dump($result);
+        //var_dump($result['issues'][4]['custom_fields']);
         echo'</pre>';
         return $this->render('GfiRedmineBundle:Default:index.html.twig', array(
         	'result' => $result,

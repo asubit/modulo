@@ -3,6 +3,7 @@
 namespace Gfi\SupportBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -61,15 +62,16 @@ class TicketController extends Controller
             $ticket->setStatut('Nouveau');// Par défaut puis géré par RedMine
             $ticket->setDate(new \DateTime());// Date de création
 
+            $newIssue = $this->forward('redmine.manager:createIssueAction', array(
+                'priority_name' => $ticket->getCriticite(),
+                'subject' => $ticket->getSujet(),
+                'description' => $ticket->getDescription()
+            ));
+
+            $ticket->setIssueId($newIssue->id);
+
             $em->persist($ticket);
             $em->flush();
-
-            $this->forward('redmine.manager:createIssueAction', array(
-                $ticket->getId(),// ticket_id,
-                $ticket->getCriticite(),// priority_name,
-                $ticket->getSujet(),// subject,
-                $ticket->getDescription()// description
-            ));
 
             return $this->redirectToRoute('ticket_show', array('id' => $ticket->getId()));
         }
@@ -83,6 +85,39 @@ class TicketController extends Controller
     /**
      * Finds and displays a Ticket entity.
      *
+     * @Route("/list", name="ticket_list")
+     * @Method("GET")
+     */
+    public function listAction()
+    {
+        /*$creation = $this->forward('redmine.manager:createIssueAction', array(
+                'priority_name' => 'Mineur',
+                'subject' => 'TEST API XML get info - Sujet',
+                'description' => 'TEST API XML get info - Description'
+            ));*/
+
+        /*echo '<h1>CREATION ID</h1>';
+        echo '<pre>';
+        var_dump($creation->id);
+        echo '</pre><hr/>';*/
+
+        /*echo '<h1>CREATION</h1>';
+        echo '<pre>';
+        var_dump($creation);
+        echo '</pre><hr/>';*/
+
+        echo '<h1>LISTE</h1>';
+        $liste = $this->forward('redmine.manager:indexAction');
+        echo '<pre>';
+        var_dump($liste);
+        echo '</pre><hr/>';
+        die;
+
+    }
+
+    /**
+     * Finds and displays a Ticket entity.
+     *
      * @Route("/{id}", name="ticket_show")
      * @Method("GET")
      */
@@ -91,7 +126,6 @@ class TicketController extends Controller
         $issue_id = 1406;
         $redmineTicket = $this->forward('redmine.manager:showIssueAction', array('issue_id' => $issue_id));
         
-
         $deleteForm = $this->createDeleteForm($ticket);
 
         return $this->render('ticket/show.html.twig', array(

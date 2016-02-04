@@ -31,6 +31,13 @@ class Ticket
     private $isRedmine;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="issue_id", type="integer", nullable=true)
+     */
+    private $issueId;
+
+    /**
      * @var string
      *
      * @Assert\NotBlank(message="Le sujet est obligatoire.")
@@ -118,6 +125,29 @@ class Ticket
     public function getIsRedmine()
     {
         return $this->isRedmine;
+    }
+
+    /**
+     * Set issueId
+     *
+     * @param integer $issueId
+     * @return Ticket
+     */
+    public function setIssueId($issueId)
+    {
+        $this->issueId = $issueId;
+
+        return $this;
+    }
+
+    /**
+     * Get issueId
+     *
+     * @return integer 
+     */
+    public function getIssueId()
+    {
+        return $this->issueId;
     }
 
     /**
