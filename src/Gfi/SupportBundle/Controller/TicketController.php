@@ -68,7 +68,7 @@ class TicketController extends Controller
                 'description' => $ticket->getDescription()
             ));
 
-            $ticket->setIssueId($newIssue->id);
+            $ticket->setIssueId($newIssue->getContent());
 
             $em->persist($ticket);
             $em->flush();
