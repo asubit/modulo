@@ -1,0 +1,61 @@
+/* styles de base si JS est activé */
+.js .input-file-container {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border: #CCCCCC 1px solid;
+  border-radius: 5px;
+}
+.js .input-file-trigger {
+  display: block;
+  padding: 14px 45px;
+  background: #F7F7F7;
+  color: #999999;
+  border-left: #CCCCCC 1px solid;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 1em;
+  transition: all .4s;
+  cursor: pointer;
+}
+.js .input-file {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  padding: 14px 0;
+  opacity: 0;
+  cursor: pointer;
+}
+ 
+/* quelques styles d'interactions */
+.js .input-file:hover + .input-file-trigger,
+.js .input-file:focus + .input-file-trigger,
+.js .input-file-trigger:hover,
+.js .input-file-trigger:focus {
+  background: #999999;
+  color: #F7F7F7;
+}
+ 
+/* styles du retour visuel */
+.file-return {
+  margin: 0;
+}
+.file-return:not(:empty) {
+  margin: 1em 0;
+}
+.js .file-return {
+  font-style: italic;
+  font-size: .9em;
+  font-weight: bold;
+  padding-left: 15px;
+}
+/* on complète l'information d'un contenu textuel
+   uniquement lorsque le paragraphe n'est pas vide */
+.js .file-return:not(:empty):before {
+  content: "Fichier sélectionné: ";
+  font-style: normal;
+  font-weight: normal;
+}
+#my-file {
+  width: 100%;
+}
