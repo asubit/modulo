@@ -8,7 +8,7 @@
         <tbody>
             <tr>
                 <th>#</th>
-                <td>N°{{ ticket.id }}{% if ticket.issueId %} (Redmine issue n° {{ticket.issueId}}){% endif %}</td>
+                <td>N°{{ ticket.id }} {% if is_granted('ROLE_ADMIN') %}{% if ticket.issueId %}(<a href="{{redmineHost}}/issues/{{ticket.issueId}}">{{ticket.issueId}}</a>){% endif %}{% endif %}</td>
             </tr>
             <tr>
                 <th>Statut</th>

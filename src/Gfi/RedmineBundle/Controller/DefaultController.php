@@ -5,6 +5,7 @@ namespace Gfi\RedmineBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class DefaultController extends Controller
 {
@@ -87,18 +88,44 @@ class DefaultController extends Controller
     	return new Response($result->id);
     }
 
-	/*
-	 * TICKET - Affiche un ticket
-	 */
+    /*
+     * TICKET - Get
+     */
+    public function getAction($issue_id, $property, $is_sub = 0)
+    {
+        if ($issue_id) {
+            $result = $this->init()->api('issue')->show($issue_id);
+
+            if ($is_sub==1) {
+                $result = $result['issue'][$property]['name'];
+            } else {
+                $result = $result['issue'][$property];
+            }
+        } else {
+            $result = null;
+        }
+
+        return new Response($result);
+    }
+
+    /*
+     * TICKET - Affiche un ticket
+     */
     public function showIssueAction($issue_id)
     {
-    	if ($issue_id) {
-    		$result = $this->init()->api('issue')->show($issue_id);
-    	} else {
-    		$result = null;
-    	}
+        if ($issue_id) {
+            $result = $this->init()->api('issue')->show($issue_id);
+        } else {
+            $result = null;
+        }
+        /*var_dump($result);
+        $response = new Response();
+        ob_start();
+        $response->headers->set('Content-Type', 'text/xml; charset=ISO-8859-1');
+        $response->setContent($result);*/
+        $response =  new JsonResponse($result);
 
-    	return $result;
+    	return $response;
     }
 
 	/*
@@ -112,7 +139,7 @@ class DefaultController extends Controller
     		$result = null;
     	}
 
-    	return $result;
+    	return new Response($result);
     }
 
 	/*

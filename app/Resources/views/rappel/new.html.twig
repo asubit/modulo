@@ -62,6 +62,8 @@
             {{ form_errors(form.heure) }}
             {{ form_widget(form.heure, {'attr': {'class': 'form-control'}}) }}
         </div>
+        
+<!--<div class="bfh-timepicker"></div>-->
         {{ form_widget(form._token) }}
         {{ form_widget(form, {'attr': {'style': 'display: none;'}}) }}
         <input class="btn btn-primary pull-right" type="submit" value="Enregistrer" />
@@ -79,9 +81,8 @@ $('#rappel_date_identifier input').datepicker({
     autoclose: true,
     todayHighlight: true
 });
-$('#rappel_heure_hour select').datepicker({
-    format: 'LT',
-});
 
 </script>
+        <!-- Bootstrap Form Helpers -->
+        <script src="{{ asset('bundles/bootstrap/dist/js/bootstrap-formhelpers.min.js') }}"></script>
 {% endblock %}

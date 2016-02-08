@@ -28,6 +28,16 @@ class TicketController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $tickets = $em->getRepository('GfiSupportBundle:Ticket')->findAll();
+        foreach ($tickets as $ticket) {
+            $status = $this->forward('redmine.manager:getAction', array('issue_id' => $ticket->getIssueId(),'property' => 'status','is_sub'=>1));
+            $subject = $this->forward('redmine.manager:getAction', array('issue_id' => $ticket->getIssueId(),'property' => 'subject'));
+            $description = $this->forward('redmine.manager:getAction', array('issue_id' => $ticket->getIssueId(),'property' => 'description'));
+
+            $ticket->setSujet($subject->getContent())->setDescription($description->getContent())->setStatut($status->getContent());
+            $em->persist($ticket);
+            $em->flush();
+        }
+        
 
         return $this->render('ticket/index.html.twig', array(
             'tickets' => $tickets,
@@ -69,6 +79,7 @@ class TicketController extends Controller
             ));
 
             $ticket->setIssueId($newIssue->getContent());
+            $ticket->setIsRedmine(true);
 
             $em->persist($ticket);
             $em->flush();
@@ -85,55 +96,33 @@ class TicketController extends Controller
     /**
      * Finds and displays a Ticket entity.
      *
-     * @Route("/list", name="ticket_list")
-     * @Method("GET")
-     */
-    public function listAction()
-    {
-        /*$creation = $this->forward('redmine.manager:createIssueAction', array(
-                'priority_name' => 'Mineur',
-                'subject' => 'TEST API XML get info - Sujet',
-                'description' => 'TEST API XML get info - Description'
-            ));*/
-
-        /*echo '<h1>CREATION ID</h1>';
-        echo '<pre>';
-        var_dump($creation->id);
-        echo '</pre><hr/>';*/
-
-        /*echo '<h1>CREATION</h1>';
-        echo '<pre>';
-        var_dump($creation);
-        echo '</pre><hr/>';*/
-
-        /*echo '<h1>LISTE</h1>';
-        $liste = $this->forward('redmine.manager:indexAction');
-        echo '<pre>';
-        var_dump($liste);
-        echo '</pre><hr/>';
-        die;*/
-
-    }
-
-    /**
-     * Finds and displays a Ticket entity.
-     *
      * @Route("/{id}", name="ticket_show")
      * @Method("GET")
      */
     public function showAction(Ticket $ticket)
     {
+        $em = $this->getDoctrine()->getManager();
         $issue_id = $ticket->getIssueId();
-        $redmineTicket = $this->forward('redmine.manager:showIssueAction', array('issue_id' => $issue_id));
+        $redmineHost = $this->container->getParameter('redmine_host');
+        $status = $this->forward('redmine.manager:getAction', array('issue_id' => $issue_id,'property' => 'status','is_sub'=>1));
+        $subject = $this->forward('redmine.manager:getAction', array('issue_id' => $issue_id,'property' => 'subject'));
+        $description = $this->forward('redmine.manager:getAction', array('issue_id' => $issue_id,'property' => 'description'));
+
+        $ticket->setSujet($subject->getContent())->setDescription($description->getContent())->setStatut($status->getContent());
+        $em->persist($ticket);
+        $em->flush();
         /*echo '<pre>';
-        var_dump($redmineTicket);
+        var_dump($status);
+        var_dump($subject);
+        var_dump($description);
         echo '</pre>';*/
 
         $deleteForm = $this->createDeleteForm($ticket);
 
         return $this->render('ticket/show.html.twig', array(
             'ticket' => $ticket,
-            'delete_form' => $deleteForm->createView(),
+            'redmineHost' => $redmineHost,
+            'delete_form' => $deleteForm->createView(),// RDV 18h30 
         ));
     }
 
