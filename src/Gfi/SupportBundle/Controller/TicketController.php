@@ -106,12 +106,12 @@ class TicketController extends Controller
         var_dump($creation);
         echo '</pre><hr/>';*/
 
-        echo '<h1>LISTE</h1>';
+        /*echo '<h1>LISTE</h1>';
         $liste = $this->forward('redmine.manager:indexAction');
         echo '<pre>';
         var_dump($liste);
         echo '</pre><hr/>';
-        die;
+        die;*/
 
     }
 
@@ -123,9 +123,12 @@ class TicketController extends Controller
      */
     public function showAction(Ticket $ticket)
     {
-        $issue_id = 1406;
+        $issue_id = $ticket->getIssueId();
         $redmineTicket = $this->forward('redmine.manager:showIssueAction', array('issue_id' => $issue_id));
-        
+        /*echo '<pre>';
+        var_dump($redmineTicket);
+        echo '</pre>';*/
+
         $deleteForm = $this->createDeleteForm($ticket);
 
         return $this->render('ticket/show.html.twig', array(

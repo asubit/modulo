@@ -35,9 +35,9 @@ class DefaultController extends Controller
 	public function getPriorityIdByName($priority_name)
 	{
 		$priorities = array(
-			10 => 'Mineur',
-			12 => 'Majeur',
-			13 => 'Bloquant'
+			$this->container->getParameter('redmine_priority_id_mineur') => 'Mineur',
+			$this->container->getParameter('redmine_priority_id_majeur') => 'Majeur',
+			$this->container->getParameter('redmine_priority_id_bloquant') => 'Bloquant'
 		);
 
 		if ($priority_name) {
@@ -131,7 +131,7 @@ class DefaultController extends Controller
     public function indexAction()
     {
         
-        $result = $this->init()->api('issue')->all(array(
+        /*$result = $this->init()->api('issue')->all(array(
 		    'limit' => 100,
 		    'project_id' => 101,
 		));
@@ -141,6 +141,6 @@ class DefaultController extends Controller
         echo'</pre>';
         return $this->render('GfiRedmineBundle:Default:index.html.twig', array(
         	'result' => $result,
-        ));
+        ));*/
     }
 }

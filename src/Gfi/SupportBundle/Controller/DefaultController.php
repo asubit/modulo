@@ -18,7 +18,10 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $tickets = $em->getRepository('GfiSupportBundle:Ticket')->findLast(5);
+        // parameters.yml
+        $nbLastTickets = $this->container->getParameter('dashboard_nb_last_tickets');
+        // findLast($limit = 5) par défaut
+        $tickets = $em->getRepository('GfiSupportBundle:Ticket')->findLast($nbLastTickets);
 
         return array('tickets' => $tickets);
     }

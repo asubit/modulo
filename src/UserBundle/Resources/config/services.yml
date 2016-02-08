@@ -1,4 +1,0 @@
-services:
-#    support.example:
-#        class: SupportBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
