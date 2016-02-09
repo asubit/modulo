@@ -6,8 +6,9 @@
 {% endblock %}
 
 {% block stylesheets %}
-    <link href="{{ asset('bundles/datetimepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
     <link href="{{ asset('bundles/gfi/css/input-file.css') }}" rel="stylesheet">
+    <!-- Bootstrap Form Helpers -->
+    <link href="{{ asset('bundles/bootstrap/dist/css/bootstrap-formhelpers.css') }}" rel="stylesheet" media="screen">
 {% endblock %}
 
 {% block titre %}
@@ -52,18 +53,21 @@
             {{ form_errors(form.telephone) }}
             {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
         </div>
+        
         <div class="form-group" id="rappel_date_identifier">
             <label for="{{ form.date.vars.id }}">{{ form_label(form.date) }} *</label>
             {{ form_errors(form.date) }}
             {{ form_widget(form.date, {'attr': {'class': 'form-control'}}) }}
+            <!--<div class="bfh-datepicker"></div>-->
         </div>
         <div class="form-group">
             <label for="{{ form.heure.vars.id }}">{{ form_label(form.heure) }} *</label>
             {{ form_errors(form.heure) }}
+            
             {{ form_widget(form.heure, {'attr': {'class': 'form-control'}}) }}
+            <!--<div class="bfh-timepicker"></div>-->
         </div>
         
-<!--<div class="bfh-timepicker"></div>-->
         {{ form_widget(form._token) }}
         {{ form_widget(form, {'attr': {'style': 'display: none;'}}) }}
         <input class="btn btn-primary pull-right" type="submit" value="Enregistrer" />

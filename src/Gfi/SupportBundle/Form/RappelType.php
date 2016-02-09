@@ -18,11 +18,22 @@ class RappelType extends AbstractType
             ->add('ticket', new TicketType())
             ->add('telephone')
             ->add('date', 'date', array(
-                'html5'=>false,
                 'widget'=>'single_text',
-                'format' => 'dd/MM/yyyy',
+                'format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'class' => 'form-control input-inline datepicker',
+                    'data-provide' => 'datepicker',
+                    'data-date-format' => 'dd-mm-yyyy'
+                )
             ))
-            ->add('heure', 'time')
+            ->add('heure', 'time', array(
+                'widget'=>'single_text',
+                'attr' => array(
+                    'class' => 'form-control input-inline timepicker',
+                    'data-provide' => 'timepicker',
+                    'data-time-format' => 'H:i'
+                )
+            ))
         ;
     }
     
