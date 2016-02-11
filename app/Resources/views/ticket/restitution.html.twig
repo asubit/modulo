@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}Restitution{% endblock %}
+
+{% block body %}
+<table class="table">
+    <tr>
+        <th>nb Tickets Total</th>
+        <td>{{ nbTicketsTotal }}</td>
+    </tr>
+    <tr>
+        <th>RAF Total</th>
+        <td>{{ rafTotal }}</td>
+    </tr>
+</table>
+{% endblock %}

@@ -17,6 +17,56 @@ use Gfi\SupportBundle\Form\TicketType;
  */
 class TicketController extends Controller
 {
+    /*
+     * Initialisation du Client Redmine
+     */
+    public function init()
+    {
+        $redmineHost = $this->container->getParameter('redmine_host');
+        $redmineUser = $this->container->getParameter('redmine_user');
+        $redminePswd = $this->container->getParameter('redmine_pswd');
+        $redmineUserAssigneId = $this->container->getParameter('redmine_assigne_user_id');
+
+        $client = new \Redmine\Client($redmineHost, $redmineUser, $redminePswd);
+
+        return $client;
+    }
+
+    /**
+     * Restitution back-office
+     *
+     * @Route("/admin/restitution", name="ticket_restitution")
+     * @Method("GET")
+     */
+    public function restitutionAction()
+    {
+        // app/config/parameters.yml
+        $redmineProjectId = $this->container->getParameter('redmine_project_id');
+        // API Redmine : Liste des tickets par ID projet
+        $ticketsAll = $this->init()->api('issue')->all(array(
+            'project_id' => $redmineProjectId,
+            'limit' => 10000000,
+        ));
+        // Nombre total de tickets pour le projet "TNT Support"
+        $nbTicketsTotal = $ticketsAll['total_count'][0];
+        // RAF total de tous les tickets
+        $rafTotal = 0;
+        foreach ($ticketsAll as $key => $t) {
+           if ($t[0]['custom_fields'][0]['name'] == "RAF") {
+               $rafTotal .= $ticketsAll['issues'][22]['custom_fields'][0]['value'];
+           }
+        }
+
+        //echo'<pre>';var_dump($ticketsAll);echo'</pre>';die;
+        //echo'<pre>';var_dump($ticketsAll['issues'][22]['custom_fields'][0]['name']);echo'</pre>';die;
+        //echo'<pre>';var_dump($rafTotal);echo'</pre>';die;
+
+        return $this->render('ticket/restitution.html.twig', array(
+            'nbTicketsTotal' => $nbTicketsTotal,
+            'rafTotal' => $rafTotal,
+        ));
+    }
+
     /**
      * Lists all Ticket entities.
      *
@@ -25,20 +75,24 @@ class TicketController extends Controller
      */
     public function indexAction()
     {
+        
         $em = $this->getDoctrine()->getManager();
-
+        // Tous les tickets créés sur la plateforme
         $tickets = $em->getRepository('GfiSupportBundle:Ticket')->findAll();
+
         foreach ($tickets as $ticket) {
+            // Récupération des données du ticket côté Redmine
             $status = $this->forward('redmine.manager:getAction', array('issue_id' => $ticket->getIssueId(),'property' => 'status','is_sub'=>1));
             $subject = $this->forward('redmine.manager:getAction', array('issue_id' => $ticket->getIssueId(),'property' => 'subject'));
             $description = $this->forward('redmine.manager:getAction', array('issue_id' => $ticket->getIssueId(),'property' => 'description'));
-
+            // Mise à jour du ticket Plateforme avec les données du ticket Redmine
             $ticket->setSujet($subject->getContent())->setDescription($description->getContent())->setStatut($status->getContent());
+            // Enregistrement
             $em->persist($ticket);
+
             $em->flush();
         }
         
-
         return $this->render('ticket/index.html.twig', array(
             'tickets' => $tickets,
         ));
