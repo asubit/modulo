@@ -21,8 +21,8 @@
             <td>{{ ticket.sujet }}</td>
             <td>{{ ticket.statut }}</td>
             <td align="center">{% if ticket.rappel %}<span class="glyphicon glyphicon glyphicon-headphones"></span>{% else %}<span class="glyphicon glyphicon-envelope"></span>{% endif %}</td>
-            <td><a href="{{ path('ticket_show', { 'id': ticket.id }) }}"><span class="glyphicon glyphicon-eye-open"></span> Voir</a></td>
             <td>{% if ticket.auteur is not null %}{{ ticket.auteur.username }}{% endif %}</td>
+            <td><a href="{{ path('ticket_show', { 'id': ticket.id }) }}"><span class="glyphicon glyphicon-eye-open"></span> Voir</a></td>
         </tr>
     {% endfor %}
     </tbody>
