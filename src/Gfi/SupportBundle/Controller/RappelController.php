@@ -47,15 +47,16 @@ class RappelController extends Controller
      */
     public function newAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $rappel = new Rappel();
-        //$ticket = new Ticket();
+
         $form = $this->createForm('Gfi\SupportBundle\Form\RappelType', $rappel);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $ticket = $form->get('ticket')->getData();
             // Gestion des données cachées
-            
             $ticket->setAuteur($this->getUser());// Utilisateur connecté au moment de la création
             $ticket->setStatut('Nouveau');// Par défaut puis géré par RedMine
             $ticket->setDate(new \DateTime());// Date de création
@@ -69,17 +70,11 @@ class RappelController extends Controller
             $ticket->setIssueId($newIssue->getContent());
             $ticket->setIsRedmine(true);
 
-            $em->persist($ticket);
-            $em->flush();
-
-
-
-            $em = $this->getDoctrine()->getManager();
-            //$rappel->setTicket($ticket);
+            $rappel->setTicket($ticket);
             $em->persist($rappel);
 
-            /*$ticket->setRappel($rappel);
-            $em->persist($ticket);*/
+            $ticket->setRappel($rappel);
+            $em->persist($ticket);
 
             $em->flush();
 
