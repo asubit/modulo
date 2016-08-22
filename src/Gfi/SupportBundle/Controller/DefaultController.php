@@ -18,10 +18,16 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
+
         // parameters.yml
         $nbLastTickets = $this->container->getParameter('dashboard_nb_last_tickets');
         // findLast($limit = 5) par défaut
-        $tickets = $em->getRepository('GfiSupportBundle:Ticket')->findLast($nbLastTickets);
+        if ($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            $tickets = $em->getRepository('GfiSupportBundle:Ticket')->findLast($nbLastTickets);
+        } else {
+            $tickets = $em->getRepository('GfiSupportBundle:Ticket')->findLastbyUser($nbLastTickets, $user);
+        }
 
         return array('tickets' => $tickets);
     }

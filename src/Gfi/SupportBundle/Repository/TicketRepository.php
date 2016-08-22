@@ -19,4 +19,13 @@ class TicketRepository extends EntityRepository
         ->setMaxResults($limit)
         ->getResult();
 	}
+
+	public function findLastByUser($limit = 5, $user)
+	{
+		return $this->getEntityManager()
+			->createQuery('SELECT t FROM GfiSupportBundle:Ticket t WHERE t.auteur = :auteur ORDER BY t.id DESC')
+			->setParameter('auteur', $user)
+			->setMaxResults($limit)
+			->getResult();
+	}
 }

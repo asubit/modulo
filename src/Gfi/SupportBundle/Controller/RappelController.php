@@ -26,6 +26,10 @@ class RappelController extends Controller
      */
     public function indexAction()
     {
+        if (!$this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            return $this->redirect($this->generateUrl('index'));
+        }
+
         $em = $this->getDoctrine()->getManager();
 
         $rappels = $em->getRepository('GfiSupportBundle:Rappel')->findAll();
@@ -49,6 +53,27 @@ class RappelController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            // Gestion des données cachées
+            
+            $ticket->setAuteur($this->getUser());// Utilisateur connecté au moment de la création
+            $ticket->setStatut('Nouveau');// Par défaut puis géré par RedMine
+            $ticket->setDate(new \DateTime());// Date de création
+
+            $newIssue = $this->forward('redmine.manager:createIssueAction', array(
+                'priority_name' => $ticket->getCriticite(),
+                'subject' => $ticket->getSujet(),
+                'description' => $ticket->getDescription()
+            ));
+
+            $ticket->setIssueId($newIssue->getContent());
+            $ticket->setIsRedmine(true);
+
+            $em->persist($ticket);
+            $em->flush();
+
+
+
             $em = $this->getDoctrine()->getManager();
             //$rappel->setTicket($ticket);
             $em->persist($rappel);

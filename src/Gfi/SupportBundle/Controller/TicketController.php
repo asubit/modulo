@@ -77,8 +77,14 @@ class TicketController extends Controller
     {
         
         $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
+
         // Tous les tickets créés sur la plateforme
-        $tickets = $em->getRepository('GfiSupportBundle:Ticket')->findAll();
+        if ($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            $tickets = $em->getRepository('GfiSupportBundle:Ticket')->findAll();
+        }else{
+            $tickets = $em->getRepository('GfiSupportBundle:Ticket')->findByAuteur($user);
+        }
 
         foreach ($tickets as $ticket) {
             // Récupération des données du ticket côté Redmine
@@ -156,6 +162,12 @@ class TicketController extends Controller
     public function showAction(Ticket $ticket)
     {
         $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
+
+        if ($user != $ticket->getAuteur() && !$this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            return $this->redirect($this->generateUrl('index'));
+        }
+
         $issue_id = $ticket->getIssueId();
         $redmineHost = $this->container->getParameter('redmine_host');
         $status = $this->forward('redmine.manager:getAction', array('issue_id' => $issue_id,'property' => 'status','is_sub'=>1));
@@ -188,6 +200,10 @@ class TicketController extends Controller
      */
     public function editAction(Request $request, Ticket $ticket)
     {
+        if (!$this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            return $this->redirect($this->generateUrl('index'));
+        }
+
         $deleteForm = $this->createDeleteForm($ticket);
         $editForm = $this->createForm('Gfi\SupportBundle\Form\TicketType', $ticket);
         $editForm->handleRequest($request);
