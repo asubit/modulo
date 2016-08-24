@@ -161,35 +161,33 @@ class TicketController extends Controller
      */
     public function showAction(Ticket $ticket)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em   = $this->getDoctrine()->getManager();
         $user = $this->getUser();
-
+        // Security access
         if ($user != $ticket->getAuteur() && !$this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             return $this->redirect($this->generateUrl('index'));
         }
-
+        // Get RedMine issue infos
         $issue_id = $ticket->getIssueId();
         $redmineHost = $this->container->getParameter('redmine_host');
         $status = $this->forward('redmine.manager:getAction', array('issue_id' => $issue_id,'property' => 'status','is_sub'=>1));
         $subject = $this->forward('redmine.manager:getAction', array('issue_id' => $issue_id,'property' => 'subject'));
         $description = $this->forward('redmine.manager:getAction', array('issue_id' => $issue_id,'property' => 'description'));
-
+        // Set App issue infos
         $ticket->setSujet($subject->getContent())->setDescription($description->getContent())->setStatut($status->getContent());
         $em->persist($ticket);
         $em->flush();
-        /*echo '<pre>';
-        var_dump($status);
-        var_dump($subject);
-        var_dump($description);
-        echo '</pre>';*/
-
+        
         $deleteForm = $this->createDeleteForm($ticket);
 
-        return $this->render('ticket/show.html.twig', array(
-            'ticket' => $ticket,
-            'redmineHost' => $redmineHost,
-            'delete_form' => $deleteForm->createView(),// RDV 18h30 
-        ));
+        return $this->render(
+            'ticket/show.html.twig', 
+            array(
+                'ticket'      => $ticket,
+                'redmineHost' => $redmineHost,
+                'delete_form' => $deleteForm->createView(), 
+            )
+        );
     }
 
     /**
