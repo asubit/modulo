@@ -1,0 +1,28 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="form-container">
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'form-signin'}}) }}
+	<p class="login-logo"><img src="{{ asset('bundles/gfi/img/login-logo.png') }}"></p>
+
+		<label for="{{ form.email.vars.id }}" class="sr-only">{{ form_label(form.email) }} *</label>
+		{{ form_errors(form.email) }}
+		{{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Adresse e-mail', 'required': 'required', 'autofocus': 'autofocus'}}) }}
+
+		<label for="{{ form.username.vars.id }}" class="sr-only">{{ form_label(form.username) }} *</label>
+		{{ form_errors(form.username) }}
+		{{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder': "Nom d'utilisateur", 'required': 'required', 'autofocus': 'autofocus'}}) }}
+
+		<label for="{{ form.plainPassword.first.vars.id }}" class="sr-only">{{ form_label(form.plainPassword.first) }} *</label>
+		{{ form_errors(form.plainPassword.first) }}
+		{{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control', 'placeholder': 'Mot de passe', 'required': 'required', 'autofocus': 'autofocus'}}) }}
+
+		<label for="{{ form.plainPassword.second.vars.id }}" class="sr-only">{{ form_label(form.plainPassword.second) }} *</label>
+		{{ form_errors(form.plainPassword.second) }}
+		{{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control', 'placeholder': 'Vérification', 'required': 'required', 'autofocus': 'autofocus'}}) }}
+
+    {{ form_rest(form) }}
+    <div>
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+{{ form_end(form) }}
+</div>
