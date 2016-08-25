@@ -82,3 +82,8 @@ fos_user:
     registration:
         form:
             type: Gfi\UserBundle\Form\RegistrationType
+        confirmation:
+            enabled: true
+            from_email:
+                address:        noreply@tnt-support.com
+                sender_name:    TNT Support
