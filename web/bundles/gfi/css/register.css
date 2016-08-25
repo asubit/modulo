@@ -85,3 +85,8 @@ body {
   background: url(../img/icon-mail.png) 11px 10px no-repeat;
   padding-left: 50px;
 }
+/* Resetting request content username or email input */
+#username {
+  background: url(../img/icon-mail.png) 11px 10px no-repeat;
+  padding-left: 50px;
+}

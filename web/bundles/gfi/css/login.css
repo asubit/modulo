@@ -54,7 +54,7 @@ body {
 }
 #password {
   background: url(../img/icon-password.png) 11px 10px no-repeat;
-  padding-left: 46px;
+  padding-left: 50px;
 }
 .form-signin button:active.btn-lg {
   background: #F7F7F7;
