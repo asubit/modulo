@@ -1,46 +1,6 @@
-body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #F3F3F3;
-}
-.login-logo {
-  text-align: center;
-  margin-bottom: 43px;
-}
 .form-container {
-  width: 477px;
   height: 436px;
-  background: white;
-  border: #EBEBEB 1px solid;
-  border-radius: 5px;
-  margin: 0 auto;
   padding-top: 39px;
-}
-.form-signin {
-  max-width: 395px;
-  margin: 0 auto;
-}
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-  margin-bottom: 10px;
-}
-.form-signin .checkbox {
-  font-weight: normal;
-}
-.form-signin .form-control {
-  height: auto;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
-}
-.form-signin .form-control:focus {
-  z-index: 2;
-}
-.form-signin input {
-  background: #F7F7F7;
-  border: #EBEBEB;
 }
 .form-signin input[type="text"] {
   margin-bottom: 12px;
@@ -55,15 +15,6 @@ body {
 #password {
   background: url(../img/icon-password.png) 11px 10px no-repeat;
   padding-left: 50px;
-}
-.form-signin button:active.btn-lg {
-  background: #F7F7F7;
-  color: #FF6600;
-}
-.form-signin button.btn-lg {
-  background: #FF6600;
-  color: white;
-  border: none;
 }
 a.link-reset {
   margin-top: 12px;
