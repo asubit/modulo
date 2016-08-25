@@ -154,20 +154,4 @@ class DefaultController extends Controller
 
     	return $result;
     }
-
-    public function indexAction()
-    {
-        
-        /*$result = $this->init()->api('issue')->all(array(
-		    'limit' => 100,
-		    'project_id' => 101,
-		));
-        echo'<pre>';
-        var_dump($result);
-        //var_dump($result['issues'][4]['custom_fields']);
-        echo'</pre>';
-        return $this->render('GfiRedmineBundle:Default:index.html.twig', array(
-        	'result' => $result,
-        ));*/
-    }
 }
