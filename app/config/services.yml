@@ -10,3 +10,7 @@ services:
     redmine.manager:
         class: Gfi\RedmineBundle\Controller\DefaultController
         arguments: ["@service_container"]
+    app.form.registration:
+        class: Gfi\UserBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: app_user_registration }
