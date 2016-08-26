@@ -5,6 +5,7 @@ namespace Gfi\UserBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="fos_user")
@@ -55,16 +56,31 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="company", type="string", length=255)
+     * @ORM\Column(name="company", type="string", length=255, nullable=true)
      */
     private $company;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="website", type="string", length=253)
+     * @ORM\Column(name="website", type="string", length=253, nullable=true)
      */
     private $website;
+
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="tnt_account", type="string", length=8)
+     * @Assert\Length(
+     *      min = 8,
+     *      minMessage = "Le numéro de compte TNT doit être de 8 caractères",
+     * )
+     * @Assert\Regex(
+     *     pattern = "/^0[0-9]/", 
+     *     message="Format du N° de compte invalide"
+     * )
+     */
+    private $tntAccount;
 
     public function __construct()
     {
@@ -241,5 +257,28 @@ class User extends BaseUser
     public function getTickets()
     {
         return $this->tickets;
+    }
+
+    /**
+     * Set tntAccount
+     *
+     * @param string $tntAccount
+     * @return User
+     */
+    public function setTntAccount($tntAccount)
+    {
+        $this->tntAccount = $tntAccount;
+
+        return $this;
+    }
+
+    /**
+     * Get tntAccount
+     *
+     * @return string 
+     */
+    public function getTntAccount()
+    {
+        return $this->tntAccount;
     }
 }

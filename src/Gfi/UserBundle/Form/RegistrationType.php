@@ -5,6 +5,7 @@ namespace Gfi\UserBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Gregwar\CaptchaBundle\Type\CaptchaType;
 
 class RegistrationType extends AbstractType
 {
@@ -15,11 +16,12 @@ class RegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('company')
-            ->add('website')
-            ->add('firstname')
-            ->add('lastname')
-            ->add('phone')
+            ->add('tntAccount')
+            ->add('captcha', 'Gregwar\CaptchaBundle\Type\CaptchaType', array(
+                'width' => 192,
+                'height' => 45,
+                'length' => 6,
+            ))
         ;
     }
 

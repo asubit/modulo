@@ -24,7 +24,7 @@
   background: url(../img/icon-website.png) 11px 10px no-repeat;
   padding-left: 50px;
 }
-#fos_user_registration_form_firstname, #fos_user_registration_form_lastname, #fos_user_registration_form_phone {
+#fos_user_registration_form_firstname, #fos_user_registration_form_lastname, #fos_user_registration_form_tntAccount {
   background: url(../img/icon-user.png) 11px 10px no-repeat;
   padding-left: 50px;
 }
@@ -35,6 +35,22 @@
 #fos_user_registration_form_email {
   background: url(../img/icon-mail.png) 11px 10px no-repeat;
   padding-left: 50px;
+}
+/* Style du Captcha */
+#captcha-container img {
+  float: left;
+}
+#captcha-container ul {/* Message d'erreur si code faux */
+  list-style: none;
+  padding-left: 0;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+#fos_user_registration_form_captcha {
+  float: right;
+  width: 198px;
+  margin-left: 5px;
 }
 /* Resetting request content username or email input */
 #username {

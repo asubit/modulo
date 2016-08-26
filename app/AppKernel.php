@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Gfi\SupportBundle\GfiSupportBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Gfi\RedmineBundle\GfiRedmineBundle(),
+            new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
