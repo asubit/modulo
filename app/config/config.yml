@@ -85,7 +85,7 @@ fos_user:
         confirmation:
             enabled: true
             from_email:
-                address:        noreply@tnt-support.com
+                address:        noreply@support.ecommerce.tnt.fr
                 sender_name:    TNT Support
 # Captcha
 gregwar_captcha: ~
