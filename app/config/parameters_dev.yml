@@ -5,7 +5,7 @@ parameters:
     database_name: tnt-support
     database_user: root
     database_password: null
-    mailer_transport: smtp
+    mailer_transport: mail
     mailer_host: localhost
     mailer_user: null
     mailer_password: null
