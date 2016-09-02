@@ -40,7 +40,7 @@ class DefaultController extends Controller
     {
     	$status = "KO";
 
-    	$username = 'user';
+    	/*$username = 'user';
     	$password = 'user';
     	$email    = 'user@gfi.fr';
     	$enabled  = 1;
@@ -48,7 +48,7 @@ class DefaultController extends Controller
 
     	$em = $this->getDoctrine()->getManager();
         $user = $this->get('fos_user.util.user_manipulator')->create($username, $password, $email, $enabled, $isSuperAdmin);
-        $status = "OK";
+        $status = "OK";*/
         
         return array('status' => $status);
     }

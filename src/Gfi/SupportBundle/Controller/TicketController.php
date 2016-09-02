@@ -33,41 +33,6 @@ class TicketController extends Controller
     }
 
     /**
-     * Restitution back-office
-     *
-     * @Route("/admin/restitution", name="ticket_restitution")
-     * @Method("GET")
-     */
-    public function restitutionAction()
-    {
-        // app/config/parameters.yml
-        $redmineProjectId = $this->container->getParameter('redmine_project_id');
-        // API Redmine : Liste des tickets par ID projet
-        $ticketsAll = $this->init()->api('issue')->all(array(
-            'project_id' => $redmineProjectId,
-            'limit' => 10000000,
-        ));
-        // Nombre total de tickets pour le projet "TNT Support"
-        $nbTicketsTotal = $ticketsAll['total_count'][0];
-        // RAF total de tous les tickets
-        $rafTotal = 0;
-        foreach ($ticketsAll as $key => $t) {
-           if ($t[0]['custom_fields'][0]['name'] == "RAF") {
-               $rafTotal .= $ticketsAll['issues'][22]['custom_fields'][0]['value'];
-           }
-        }
-
-        //echo'<pre>';var_dump($ticketsAll);echo'</pre>';die;
-        //echo'<pre>';var_dump($ticketsAll['issues'][22]['custom_fields'][0]['name']);echo'</pre>';die;
-        //echo'<pre>';var_dump($rafTotal);echo'</pre>';die;
-
-        return $this->render('ticket/restitution.html.twig', array(
-            'nbTicketsTotal' => $nbTicketsTotal,
-            'rafTotal' => $rafTotal,
-        ));
-    }
-
-    /**
      * Lists all Ticket entities.
      *
      * @Route("/", name="ticket_index")
@@ -79,23 +44,23 @@ class TicketController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
 
-        // Tous les tickets créés sur la plateforme
+        // Admin see all issues
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             $tickets = $em->getRepository('GfiSupportBundle:Ticket')->findAll();
-        }else{
+        }
+        else{// User see his issues
             $tickets = $em->getRepository('GfiSupportBundle:Ticket')->findByAuteur($user);
         }
 
+        // Call API - Update all issues
         foreach ($tickets as $ticket) {
-            // Récupération des données du ticket côté Redmine
-            $status = $this->forward('redmine.manager:getAction', array('issue_id' => $ticket->getIssueId(),'property' => 'status','is_sub'=>1));
-            $subject = $this->forward('redmine.manager:getAction', array('issue_id' => $ticket->getIssueId(),'property' => 'subject'));
+            // Get new issue fields values
+            $status      = $this->forward('redmine.manager:getAction', array('issue_id' => $ticket->getIssueId(),'property' => 'status','is_sub'=>1));
+            $subject     = $this->forward('redmine.manager:getAction', array('issue_id' => $ticket->getIssueId(),'property' => 'subject'));
             $description = $this->forward('redmine.manager:getAction', array('issue_id' => $ticket->getIssueId(),'property' => 'description'));
-            // Mise à jour du ticket Plateforme avec les données du ticket Redmine
+            // Update issue
             $ticket->setSujet($subject->getContent())->setDescription($description->getContent())->setStatut($status->getContent());
-            // Enregistrement
             $em->persist($ticket);
-
             $em->flush();
         }
         
@@ -113,43 +78,44 @@ class TicketController extends Controller
     public function newAction(Request $request)
     {
         $ticket = new Ticket();
-        $form = $this->createForm('Gfi\SupportBundle\Form\TicketType', $ticket);
+        $form   = $this->createForm('Gfi\SupportBundle\Form\TicketType', $ticket);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            // Gestion du fichier joint
+            // Manage attachment file
             $file = $ticket->getFichier();
             if ($file) {
-                $fileDate = date('Y'). date('m'). date('d').date('H'). date('i'). date('s').rand(10, 99).'_';// N° unique
-                $fileName = $fileDate.$file->getClientOriginalName();// Nom du fichier original
-                $fileDir = $this->container->getParameter('kernel.root_dir').'/../web/uploads/tickets';// Dossier d'enregistrement
-                $file->move($fileDir, $fileName);// Uplaod du fichier
-                $ticket->setFichier($fileName);// Enregistrement
+                $fileDate = date('Y'). date('m'). date('d').date('H'). date('i'). date('s').rand(10, 99).'_';// as unique number
+                $fileName = $fileDate.$file->getClientOriginalName();// original filename
+                $fileDir  = $this->container->getParameter('kernel.root_dir').'/../web/uploads/tickets';// upload folder (777)
+                $file->move($fileDir, $fileName);
+                $ticket->setFichier($fileName);
             }
-            // Gestion des données cachées
-            $ticket->setAuteur($this->getUser());// Utilisateur connecté au moment de la création
-            $ticket->setStatut('Nouveau');// Par défaut puis géré par RedMine
-            $ticket->setDate(new \DateTime());// Date de création
-
+            // Manage default value
+            $ticket->setAuteur($this->getUser());
+            $ticket->setStatut('Nouveau');
+            $ticket->setDate(new \DateTime());
+            // Call API - Create issue
             $newIssue = $this->forward('redmine.manager:createIssueAction', array(
                 'priority_name' => $ticket->getCriticite(),
-                'subject' => $ticket->getSujet(),
-                'description' => $ticket->getDescription()
+                'subject'       => $ticket->getSujet(),
+                'description'   => $ticket->getDescription()
             ));
-
+            // Update issue
             $ticket->setIssueId($newIssue->getContent());
             $ticket->setIsRedmine(true);
-
             $em->persist($ticket);
             $em->flush();
 
-            return $this->redirectToRoute('ticket_show', array('id' => $ticket->getId()));
+            return $this->redirectToRoute('ticket_show', array(
+                'id' => $ticket->getId()
+            ));
         }
 
         return $this->render('ticket/new.html.twig', array(
             'ticket' => $ticket,
-            'form' => $form->createView(),
+            'form'   => $form->createView(),
         ));
     }
 
@@ -167,27 +133,24 @@ class TicketController extends Controller
         if ($user != $ticket->getAuteur() && !$this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             return $this->redirect($this->generateUrl('index'));
         }
-        // Get RedMine issue infos
-        $issue_id = $ticket->getIssueId();
+        // Call API
+        $issue_id    = $ticket->getIssueId();
         $redmineHost = $this->container->getParameter('redmine_host');
-        $status = $this->forward('redmine.manager:getAction', array('issue_id' => $issue_id,'property' => 'status','is_sub'=>1));
-        $subject = $this->forward('redmine.manager:getAction', array('issue_id' => $issue_id,'property' => 'subject'));
+        $status      = $this->forward('redmine.manager:getAction', array('issue_id' => $issue_id,'property' => 'status','is_sub'=>1));
+        $subject     = $this->forward('redmine.manager:getAction', array('issue_id' => $issue_id,'property' => 'subject'));
         $description = $this->forward('redmine.manager:getAction', array('issue_id' => $issue_id,'property' => 'description'));
-        // Set App issue infos
+        // Update issue
         $ticket->setSujet($subject->getContent())->setDescription($description->getContent())->setStatut($status->getContent());
         $em->persist($ticket);
         $em->flush();
         
         $deleteForm = $this->createDeleteForm($ticket);
 
-        return $this->render(
-            'ticket/show.html.twig', 
-            array(
-                'ticket'      => $ticket,
-                'redmineHost' => $redmineHost,
-                'delete_form' => $deleteForm->createView(), 
-            )
-        );
+        return $this->render('ticket/show.html.twig', array(
+            'ticket'      => $ticket,
+            'redmineHost' => $redmineHost,
+            'delete_form' => $deleteForm->createView(), 
+        ));
     }
 
     /**
@@ -198,6 +161,7 @@ class TicketController extends Controller
      */
     public function editAction(Request $request, Ticket $ticket)
     {
+        // Security access
         if (!$this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             return $this->redirect($this->generateUrl('index'));
         }
@@ -229,6 +193,11 @@ class TicketController extends Controller
      */
     public function deleteAction(Request $request, Ticket $ticket)
     {
+        // Security access
+        if (!$this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            return $this->redirect($this->generateUrl('index'));
+        }
+
         $form = $this->createDeleteForm($ticket);
         $form->handleRequest($request);
 

@@ -31,4 +31,14 @@ class UserRepository extends EntityRepository implements UserLoaderInterface
 
         return $user;
     }
+
+    /*
+     * Récupère un utilisateur par "username"
+     */
+    public function findAllDisabled()
+    {
+        $qb = $this->createQueryBuilder('u')->where('u.isValid IS NULL AND u.enabled = 1');
+
+        return $qb->getQuery()->getResult();
+    }
 }

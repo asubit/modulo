@@ -82,6 +82,13 @@ class User extends BaseUser
      */
     private $tntAccount;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_valid", type="boolean", nullable=true)
+     */
+    private $isValid;
+
     public function __construct()
     {
         parent::__construct();
@@ -280,5 +287,28 @@ class User extends BaseUser
     public function getTntAccount()
     {
         return $this->tntAccount;
+    }
+
+    /**
+     * Set isValid
+     *
+     * @param boolean $isValid
+     * @return User
+     */
+    public function setIsValid($isValid)
+    {
+        $this->isValid = $isValid;
+
+        return $this;
+    }
+
+    /**
+     * Get isValid
+     *
+     * @return boolean 
+     */
+    public function getIsValid()
+    {
+        return $this->isValid;
     }
 }

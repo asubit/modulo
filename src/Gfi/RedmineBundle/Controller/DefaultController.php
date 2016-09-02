@@ -83,6 +83,7 @@ class DefaultController extends Controller
 			'subject' => $subject,
 			'description' => $description,
 			'assigned_to_id' => $redmineUserAssigneId,
+            'custom_fields' => array("value" => $this->getUser()->getTntAccount(), "name" => "E-mail externe")
 		));
 
     	return new Response($result->id);
