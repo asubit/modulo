@@ -34,8 +34,7 @@ body{
 	color: #FF6600;
 }
 .col-gauche {
-	background: url(../img/logo-gfi.jpg) bottom no-repeat #fff;
-	padding: 0px 0px 108px 0px;
+	padding: 0px;
 }
 .col-gauche ul.nav li a {
 	text-transform: uppercase;
