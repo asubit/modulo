@@ -35,6 +35,13 @@ class User extends BaseUser
     /**
      * @var string
      *
+     * @ORM\Column(name="civility", type="string", length=255, nullable=true)
+     */
+    private $civility;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="lastname", type="string", length=255, nullable=true)
      */
     private $lastname;
@@ -310,5 +317,28 @@ class User extends BaseUser
     public function getIsValid()
     {
         return $this->isValid;
+    }
+
+    /**
+     * Set civility
+     *
+     * @param string $civility
+     * @return User
+     */
+    public function setCivility($civility)
+    {
+        $this->civility = $civility;
+
+        return $this;
+    }
+
+    /**
+     * Get civility
+     *
+     * @return string
+     */
+    public function getCivility()
+    {
+        return $this->civility;
     }
 }

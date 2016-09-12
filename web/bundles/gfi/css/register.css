@@ -1,3 +1,4 @@
+/* Style du formulaire */
 .form-container {
   padding-top: 39px;
   padding-bottom: 57px;
@@ -24,7 +25,7 @@
   background: url(../img/icon-website.png) 11px 10px no-repeat;
   padding-left: 50px;
 }
-#fos_user_registration_form_firstname, #fos_user_registration_form_lastname, #fos_user_registration_form_tntAccount {
+#fos_user_registration_form_firstname, #fos_user_registration_form_lastname, #fos_user_registration_form_tntAccount, #fos_user_registration_form_civility {
   background: url(../img/icon-user.png) 11px 10px no-repeat;
   padding-left: 50px;
 }
@@ -35,6 +36,15 @@
 #fos_user_registration_form_email {
   background: url(../img/icon-mail.png) 11px 10px no-repeat;
   padding-left: 50px;
+}
+#fos_user_registration_form_civility {
+  border: none;
+}
+#fos_user_registration_form_civility label{
+  color: #999;
+  font-weight: normal;
+  margin-left: 5px;
+  margin-right: 20px;
 }
 /* Style du Captcha */
 #captcha-container img {

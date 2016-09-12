@@ -16,6 +16,17 @@ class RegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('civility', 'choice', array(
+                'choices'  => array(
+                    'Mr' => 'Mr',
+                    'Mme' => 'Mme',
+                ),
+                'expanded' => true,
+                'multiple' => false,
+                'choices_as_values' => true,
+            ))
+            ->add('lastname')
+            ->add('firstname')
             ->add('tntAccount')
             ->add('captcha', 'Gregwar\CaptchaBundle\Type\CaptchaType', array(
                 'width' => 192,
