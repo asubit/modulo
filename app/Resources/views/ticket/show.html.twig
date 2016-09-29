@@ -32,6 +32,10 @@
                 <td><a href="{{ asset('uploads/tickets') }}/{{ ticket.fichier }}" target="_blank">{{ ticket.fichier }}</a></td>
             </tr>
             {% endif %}
+            <tr>
+                <th>Auteur</th>
+                <td><strong>E-mail :</strong> {{ ticket.auteur.email }}<br /><strong>N° de compte TNT :</strong> {{ ticket.auteur.tntAccount }}</td>
+            </tr>
         </tbody>
     </table>
 
