@@ -1,3 +1,0 @@
-gfi_redmine_homepage:
-    path:     /
-    defaults: { _controller: GfiRedmineBundle:Default:index }

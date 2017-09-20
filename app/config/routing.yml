@@ -1,11 +1,12 @@
-gfi_redmine:
-    resource: "@GfiRedmineBundle/Resources/config/routing.yml"
-    prefix:   /redmine
-
-support:
-    resource: "@GfiSupportBundle/Controller/"
+modulo:
+    resource: "@ModuloBundle/Controller/"
     type:     annotation
     prefix:   /
 
+#modulo:
+#    resource: "@Asubit/ModuloBundle/Controller/"
+#    type:     annotation
+#    prefix:   /
+#
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

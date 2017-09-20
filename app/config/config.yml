@@ -2,7 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@GfiSupportBundle/Resources/config/services.yml" }
+    - { resource: "@ModuloBundle/Resources/config/services.yml" }
 
 services:
     twig.extension.intl:
@@ -19,7 +19,7 @@ services:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
-    account.security_listener.class: Gfi\UserBundle\Listener\SecurityListener
+    account.security_listener.class: Asubit\UserBundle\Listener\SecurityListener
 
 framework:
     #esi:             ~
@@ -84,14 +84,14 @@ swiftmailer:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: Gfi\UserBundle\Entity\User
+    user_class: Asubit\UserBundle\Entity\User
     registration:
         form:
-            type: Gfi\UserBundle\Form\RegistrationType
+            type: Asubit\UserBundle\Form\RegistrationType
         confirmation:
             enabled: true
             from_email:
-                address:        noreply@support.ecommerce.tnt.fr
-                sender_name:    TNT Support
+                address:        noreply@local.dev.fr
+                sender_name:    MODULO
 # Captcha
 gregwar_captcha: ~
