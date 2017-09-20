@@ -2,130 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06c851ba-15af-49e0-869f-c2f59de96970" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-baseco.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-company.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-compte.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-mail.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-password.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-phone.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-rappel.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-ticket-add.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-ticket.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-user.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-website.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/login-logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/logo-gfi-hd-300dpi.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/logo-gfi.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/logo-tnt.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/visuel-baseco.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/visuel-rappel.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/visuel-ticket.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/FRUP68172.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modulo.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/AsubitUserBundle.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Controller/DefaultController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Entity/User.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Entity/UserRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Form/RegistrationType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Listener/SecurityListener.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Registration/checkEmail.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Registration/register.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Registration/register_content.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/checkEmail.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/passwordAlreadyRequested.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/request.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/request_content.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Security/login.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ModuloBundle/Controller/DefaultController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ModuloBundle/ModuloBundle.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ModuloBundle/Resources/views/Default/index.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/check-email.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/front-anonymous.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/input-file.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/login.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/register.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/js/input-file.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/Controller/DefaultController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/DependencyInjection/Configuration.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/DependencyInjection/GfiRedmineExtension.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/GfiRedmineBundle.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/Resources/config/routing.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Controller/AdminController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Controller/ArticleController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Controller/DefaultController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Controller/RappelController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Controller/SectionController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Controller/TicketController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Entity/Article.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Entity/Rappel.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Entity/Section.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Entity/Ticket.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Form/ArticleType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Form/RappelType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Form/SectionType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Form/TicketType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/GfiSupportBundle.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Repository/ArticleRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Repository/RappelRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Repository/SectionRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Repository/TicketRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Resources/views/Default/index.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Resources/views/Default/load.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Tests/Controller/ArticleControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Tests/Controller/DefaultControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Tests/Controller/RappelControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Tests/Controller/SectionControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Tests/Controller/TicketControllerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/UserBundle/Controller/DefaultController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/UserBundle/Entity/User.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/UserBundle/Entity/UserRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/UserBundle/Form/RegistrationType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/UserBundle/GfiUserBundle.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/UserBundle/Listener/SecurityListener.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/UserBundle/Resources/config/services.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/UserBundle/Resources/views/Registration/checkEmail.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/UserBundle/Resources/views/Registration/register.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/UserBundle/Resources/views/Registration/register_content.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/UserBundle/Resources/views/Resetting/checkEmail.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/UserBundle/Resources/views/Resetting/passwordAlreadyRequested.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/UserBundle/Resources/views/Resetting/request.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/UserBundle/Resources/views/Resetting/request_content.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/UserBundle/Resources/views/Security/login.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/css/check-email.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/css/front-anonymous.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/css/input-file.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/css/login.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/css/register.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/icon-baseco.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/icon-company.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/icon-compte.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/icon-mail.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/icon-password.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/icon-phone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/icon-rappel.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/icon-ticket-add.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/icon-ticket.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/icon-user.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/icon-website.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/login-logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/logo-gfi-hd-300dpi.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/logo-gfi.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/logo-tnt.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/visuel-baseco.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/visuel-rappel.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/img/visuel-ticket.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bundles/gfi/js/input-file.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/bootstrap/dist/img/bootstrap-formhelpers-countries.flags.png" afterPath="$PROJECT_DIR$/web/bundles/bootstrap/dist/img/bootstrap-formhelpers-countries.flags.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/bootstrap/dist/img/bootstrap-formhelpers-currencies.flags.png" afterPath="$PROJECT_DIR$/web/bundles/bootstrap/dist/img/bootstrap-formhelpers-currencies.flags.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/bootstrap/dist/img/bootstrap-formhelpers-googlefonts.png" afterPath="$PROJECT_DIR$/web/bundles/bootstrap/dist/img/bootstrap-formhelpers-googlefonts.png" />
@@ -133,6 +9,24 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/web/bundles/bootstrap/fonts/glyphicons-halflings-regular.ttf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/bootstrap/fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/web/bundles/bootstrap/fonts/glyphicons-halflings-regular.woff" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/web/bundles/bootstrap/fonts/glyphicons-halflings-regular.woff2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/icon-baseco.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-baseco.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/icon-company.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-company.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/icon-compte.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-compte.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/icon-mail.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-mail.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/icon-password.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-password.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/icon-phone.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-phone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/icon-rappel.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-rappel.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/icon-ticket-add.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-ticket-add.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/icon-ticket.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-ticket.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/icon-user.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-user.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/icon-website.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-website.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/login-logo.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/login-logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/logo-gfi-hd-300dpi.jpg" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/logo-gfi-hd-300dpi.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/logo-gfi.jpg" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/logo-gfi.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/logo-tnt.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/logo-tnt.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/visuel-baseco.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/visuel-baseco.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/visuel-rappel.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/visuel-rappel.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/img/visuel-ticket.png" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/visuel-ticket.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/plugins/emoticons/img/smiley-cool.gif" afterPath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/plugins/emoticons/img/smiley-cool.gif" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/plugins/emoticons/img/smiley-cry.gif" afterPath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/plugins/emoticons/img/smiley-cry.gif" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/plugins/emoticons/img/smiley-embarassed.gif" afterPath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/plugins/emoticons/img/smiley-embarassed.gif" />
@@ -162,6 +56,17 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/skins/lightgray/img/trans.gif" afterPath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/skins/lightgray/img/trans.gif" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/favicon.ico" afterPath="$PROJECT_DIR$/web/favicon.ico" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/FRUP68172.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/FRUP68172.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modulo.iml" afterPath="$PROJECT_DIR$/.idea/modulo.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/layout.html.twig" afterPath="$PROJECT_DIR$/app/Resources/layout.html.twig" />
@@ -192,6 +97,22 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Asubit/UserBundle/AsubitUserBundle.php" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/AsubitUserBundle.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Asubit/UserBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Controller/DefaultController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Asubit/UserBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Entity/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Asubit/UserBundle/Entity/UserRepository.php" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Entity/UserRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Asubit/UserBundle/Form/RegistrationType.php" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Form/RegistrationType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Asubit/UserBundle/Listener/SecurityListener.php" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Listener/SecurityListener.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/config/services.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Registration/checkEmail.html.twig" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Registration/checkEmail.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Registration/register.html.twig" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Registration/register.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Registration/register_content.html.twig" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Registration/register_content.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/checkEmail.html.twig" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/checkEmail.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/passwordAlreadyRequested.html.twig" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/passwordAlreadyRequested.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/request.html.twig" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/request.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/request_content.html.twig" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/request_content.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Security/login.html.twig" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Security/login.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ModuloBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/ModuloBundle/Resources/views/Default/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app.php" afterPath="$PROJECT_DIR$/web/app.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app_dev.php" afterPath="$PROJECT_DIR$/web/app_dev.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/bootstrap/css/bootstrap-theme.css" afterPath="$PROJECT_DIR$/web/bundles/bootstrap/css/bootstrap-theme.css" />
@@ -286,6 +207,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/datetimepicker/locales/bootstrap-datepicker.vi.min.js" afterPath="$PROJECT_DIR$/web/bundles/datetimepicker/locales/bootstrap-datepicker.vi.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/datetimepicker/locales/bootstrap-datepicker.zh-CN.min.js" afterPath="$PROJECT_DIR$/web/bundles/datetimepicker/locales/bootstrap-datepicker.zh-CN.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/datetimepicker/locales/bootstrap-datepicker.zh-TW.min.js" afterPath="$PROJECT_DIR$/web/bundles/datetimepicker/locales/bootstrap-datepicker.zh-TW.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/css/check-email.css" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/check-email.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/css/front-anonymous.css" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/front-anonymous.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/css/input-file.css" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/input-file.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/css/login.css" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/login.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/css/register.css" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/register.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/css/style.css" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/modulo/js/input-file.js" afterPath="$PROJECT_DIR$/web/bundles/modulo/js/input-file.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/tinymce/LICENSE.TXT" afterPath="$PROJECT_DIR$/web/bundles/tinymce/LICENSE.TXT" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/tinymce/changelog.txt" afterPath="$PROJECT_DIR$/web/bundles/tinymce/changelog.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/langs/readme.md" afterPath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/langs/readme.md" />
@@ -345,9 +273,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/skins/lightgray/skin.min.css" afterPath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/skins/lightgray/skin.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/themes/modern/theme.min.js" afterPath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/themes/modern/theme.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/tinymce.min.js" afterPath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/tinymce.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/ModuloBundle/Resources/config/services.yml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/Tests/Controller/DefaultControllerTest.php" afterPath="$PROJECT_DIR$/src/ModuloBundle/Tests/Controller/DefaultControllerTest.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/config/services.yml" />
     </list>
     <ignored path="modulo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -382,8 +307,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="17">
+              <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -695,12 +620,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1505892115235</updated>
-      <workItem from="1505892118295" duration="4388000" />
+      <workItem from="1505892118295" duration="4452000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4388000" />
+    <option name="totallyTimeSpent" value="4452000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -990,8 +915,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
           <folding />
         </state>
       </provider>
