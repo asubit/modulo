@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page list{% endblock %}
+
+{% block pageheader %}Page list{% endblock %}
+
+{% block body %}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Content</th>
+                    <th>Slug</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for page in pages %}
+                <tr>
+                    <td><a href="{{ path('page_show', { 'id': page.id }) }}">{{ page.id }}</a></td>
+                    <td>{{ page.name }}</td>
+                    <td>{{ page.content }}</td>
+                    <td>{{ page.slug }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('page_show', { 'id': page.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('page_edit', { 'id': page.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <p>
+        <a href="{{ path('page_new') }}" class="btn btn-success">Create a new entry</a>
+    </p>
+{% endblock %}

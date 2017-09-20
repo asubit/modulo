@@ -1,100 +1,105 @@
-body{
-	background: #F3F3F3 !important;
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
 }
-.bg-white {
-	background: #fff;
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
 }
-.header {
-	height: 80px;
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+    border: 0;
 }
-.logo {
-	background: #FF6600;
-	color: white;
-	height: 80px;
-	line-height: 80px;
-	text-align: center;
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+    display: none;
 }
-.logo img {
-	max-width: 91px;
+@media (min-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 51px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        background-color: #f5f5f5;
+        border-right: 1px solid #eee;
+    }
 }
-.titre {
-	font-size: 1.5em;
-	color: #B7B7B7;
-	text-align: left;
-	padding-left: 28px;
-	line-height: 80px;
-	font-weight: bold;
+
+/* Sidebar navigation */
+.nav-sidebar {
+    margin-right: -21px; /* 20px padding + 1px border */
+    margin-bottom: 20px;
+    margin-left: -20px;
 }
-.user {
-	color: #697279;
-	text-align: right;
-	line-height: 80px;
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
 }
-.user span.glyphicon {
-	color: #FF6600;
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+    color: #fff;
+    background-color: #428bca;
 }
-.col-gauche {
-	padding: 0px;
+
+
+/*
+ * Main content
+ */
+
+.main {
+    padding: 20px;
 }
-.col-gauche ul.nav li a {
-	text-transform: uppercase;
-	color: #697279;
+@media (min-width: 768px) {
+    .main {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
 }
-.col-gauche ul.nav li a img {
-	margin-right: 5px; 
+.main .page-header {
+    margin-top: 0;
 }
-.content {
-	margin: 10px;
-	padding: 10px 10px 50px 10px;
-	background: #fff;
-	border-radius: 5px;
-	border: #F7F7F7 1px solid;
-	min-height: 200px;
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+    margin-bottom: 30px;
+    text-align: center;
 }
-.bloc-visuel-space {
-	width: 5%;
-	float: left;
-	position: relative;
+.placeholders h4 {
+    margin-bottom: 0;
 }
-.bloc-visuel {
-	background: white;
-	border-radius: 10px;
-	border: #F7F7F7 1px solid;
-	float: left;
-	position: relative;
-	width: 30%;
+.placeholder {
+    margin-bottom: 20px;
 }
-.bloc-visuel p a.btn {
-	background: #FF6600;
-	border: none;
-	color: white;
-}
-.bloc-visuel p {
-	text-align: center;
-	margin-top: 271px;
-}
-div.bloc-visuel#ticket {
-	background: url(../img/visuel-ticket.png) top right no-repeat #fff;
-	min-height: 261px;
-}
-div.bloc-visuel#rappel {
-	background: url(../img/visuel-rappel.png) top right no-repeat #fff;
-	min-height: 261px;
-}
-div.bloc-visuel#baseco {
-	background: url(../img/visuel-baseco.png) top right no-repeat #fff;
-	min-height: 261px;
-}
-div.tickets-last div.panel {
-	border: #F6F7FA 1px solid !important;
-}
-div.tickets-last div.panel-heading {
-	background: white;
-}
-table.table-ticket td {
-	border: #DEDEDE 1px solid;
-}
-table.table-ticket thead {
-	background: #F2F2F2;
-	color: #B4B4B4;
+.placeholder img {
+    display: inline-block;
+    border-radius: 50%;
 }
