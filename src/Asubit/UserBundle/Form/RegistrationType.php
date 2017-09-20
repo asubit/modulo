@@ -1,6 +1,6 @@
 <?php
 
-namespace Gfi\UserBundle\Form;
+namespace Asubit\UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -27,7 +27,6 @@ class RegistrationType extends AbstractType
             ))
             ->add('lastname')
             ->add('firstname')
-            ->add('tntAccount')
             ->add('captcha', 'Gregwar\CaptchaBundle\Type\CaptchaType', array(
                 'width' => 192,
                 'height' => 45,
@@ -57,7 +56,7 @@ class RegistrationType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Gfi\UserBundle\Entity\User'
+            'data_class' => 'Asubit\UserBundle\Entity\User'
         ));
     }
 }

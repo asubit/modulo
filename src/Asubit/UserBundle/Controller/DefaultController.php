@@ -1,6 +1,6 @@
 <?php
 
-namespace Gfi\UserBundle\Controller;
+namespace Asubit\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

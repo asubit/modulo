@@ -1,14 +1,14 @@
 <?php
 
-namespace Gfi\UserBundle\Listener;
+namespace Asubit\UserBundle\Listener;
 
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-use Gfi\UserBundle\Entity\User;
-use Gfi\UserBundle\Entity\UserRepository;
+use Asubit\UserBundle\Entity\User;
+use Asubit\UserBundle\Entity\UserRepository;
 
 class SecurityListener
 {
@@ -21,11 +21,10 @@ class SecurityListener
 
    public function onSecurityInteractiveLogin(InteractiveLoginEvent $event)
    {
-      if ($event->getAuthenticationToken()->getUser()->getIsValid() != 1) {
-        //var_dump('not valid');die;
+      if ($event->getAuthenticationToken()->getUser()->isEnabled() != 1) {
         $this->security->setToken(null);
         $this->session->invalidate();
-        $this->session->getFlashBag()->add('info', "Bienvenue! Nous sommes en train d'étudier votre dossier afin de valider que votre numéro de compte TNT. Vous recevrez un email quand votre compte sera validé.");
+        $this->session->getFlashBag()->add('info', "Bienvenue!");
         $response = new RedirectResponse('/logout');
         $response->send();
       }

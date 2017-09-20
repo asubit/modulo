@@ -21,10 +21,6 @@
 		{{ form_errors(form.email) }}
 		{{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Adresse e-mail *', 'required': 'required', 'autofocus': 'autofocus'}}) }}
 
-		<label for="{{ form.tntAccount.vars.id }}" class="sr-only">{{ form_label(form.tntAccount) }} *</label>
-		{{ form_errors(form.tntAccount) }}
-		{{ form_widget(form.tntAccount, {'attr': {'class': 'form-control', 'placeholder': "N° compte client TNT *", 'required': 'required', 'autofocus': 'autofocus'}}) }}
-
 		<label for="{{ form.civility.vars.id }}" class="sr-only">{{ form_label(form.civility) }}</label>
 		{{ form_errors(form.civility) }}
 		{{ form_widget(form.civility, {'attr': {'class': 'form-control', 'autofocus': 'autofocus'}}) }}

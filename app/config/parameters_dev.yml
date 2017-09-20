@@ -2,7 +2,7 @@
 parameters:
     database_host: localhost
     database_port: null
-    database_name: tnt-support
+    database_name: modulo
     database_user: root
     database_password: null
     mailer_transport: mail
@@ -11,12 +11,3 @@ parameters:
     mailer_password: null
     secret: secretToken
     locale: fr
-    redmine_host: http://helpdesk.dacrydium.fr
-    redmine_user: tntsupport
-    redmine_pswd: tntsupport
-    redmine_assigne_user_id: 70
-    redmine_project_id: 101
-    redmine_priority_id_mineur: 10
-    redmine_priority_id_majeur: 12
-    redmine_priority_id_bloquant: 13
-    dashboard_nb_last_tickets: 5
