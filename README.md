@@ -1,10 +1,6 @@
-Application de ticketing Gfi
-========================
-
-Documentation applicative
---------------
-
-[Wiki TNT Support][14]
+Modulo
+======
+by asubit
 
 Symfony Standard Edition 2.8
 --------------

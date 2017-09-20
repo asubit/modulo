@@ -2,13 +2,64 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06c851ba-15af-49e0-869f-c2f59de96970" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-baseco.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-company.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-compte.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-mail.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-password.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-phone.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-rappel.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-ticket-add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-ticket.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-user.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/icon-website.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/login-logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/logo-gfi-hd-300dpi.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/logo-gfi.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/logo-tnt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/visuel-baseco.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/visuel-rappel.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/img/visuel-ticket.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/FRUP68172.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modulo.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/php.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/AsubitUserBundle.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Controller/DefaultController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Entity/User.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Entity/UserRepository.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Form/RegistrationType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Listener/SecurityListener.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Registration/checkEmail.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Registration/register.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Registration/register_content.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/checkEmail.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/passwordAlreadyRequested.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/request.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/request_content.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Security/login.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ModuloBundle/Controller/DefaultController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ModuloBundle/ModuloBundle.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ModuloBundle/Resources/views/Default/index.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/check-email.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/front-anonymous.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/input-file.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/login.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/register.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/modulo/js/input-file.js" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/Controller/DefaultController.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/DependencyInjection/Configuration.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/DependencyInjection/GfiRedmineExtension.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/GfiRedmineBundle.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/Resources/config/routing.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/Resources/config/services.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/Tests/Controller/DefaultControllerTest.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Controller/AdminController.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Controller/ArticleController.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Controller/DefaultController.php" afterPath="" />
@@ -28,7 +79,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Repository/RappelRepository.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Repository/SectionRepository.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Repository/TicketRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Resources/config/services.yml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Resources/views/Default/index.html.twig" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Resources/views/Default/load.html.twig" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Tests/Controller/ArticleControllerTest.php" afterPath="" />
@@ -295,6 +345,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/skins/lightgray/skin.min.css" afterPath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/skins/lightgray/skin.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/themes/modern/theme.min.js" afterPath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/themes/modern/theme.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/tinymce.min.js" afterPath="$PROJECT_DIR$/web/bundles/tinymce/js/tinymce/tinymce.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/ModuloBundle/Resources/config/services.yml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Gfi/RedmineBundle/Tests/Controller/DefaultControllerTest.php" afterPath="$PROJECT_DIR$/src/ModuloBundle/Tests/Controller/DefaultControllerTest.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Gfi/SupportBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/config/services.yml" />
     </list>
     <ignored path="modulo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -316,11 +369,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ModuloBundle/Resources/views/Default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="194" column="6" selection-start-line="194" selection-start-column="6" selection-end-line="194" selection-end-column="6" />
+            <state relative-caret-position="530">
+              <caret line="201" column="7" selection-start-line="201" selection-start-column="7" selection-end-line="201" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -335,7 +398,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/LICENSE" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/src/Asubit/UserBundle/AsubitUserBundle.php" />
@@ -355,6 +417,7 @@
         <option value="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Resetting/request_content.html.twig" />
         <option value="$PROJECT_DIR$/src/Asubit/UserBundle/Resources/views/Security/login.html.twig" />
         <option value="$PROJECT_DIR$/src/ModuloBundle/Resources/views/Default/index.html.twig" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -632,12 +695,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1505892115235</updated>
-      <workItem from="1505892118295" duration="4171000" />
+      <workItem from="1505892118295" duration="4388000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4171000" />
+    <option name="totallyTimeSpent" value="4388000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -673,14 +736,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1309">
-          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -927,8 +982,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ModuloBundle/Resources/views/Default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="194" column="6" selection-start-line="194" selection-start-column="6" selection-end-line="194" selection-end-column="6" />
+        <state relative-caret-position="530">
+          <caret line="201" column="7" selection-start-line="201" selection-start-column="7" selection-end-line="201" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
