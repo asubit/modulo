@@ -1,0 +1,10 @@
+{% extends "layout.html.twig" %}
+
+{% block stylesheets %}
+<link href="{{ asset('bundles/modulo/css/front-anonymous.css') }}" rel="stylesheet">
+<link href="{{ asset('bundles/modulo/css/register.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block fos_user_content %}
+{% include "FOSUserBundle:Registration:register_content.html.twig" %}
+{% endblock fos_user_content %}

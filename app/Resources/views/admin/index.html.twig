@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}Administration{% endblock %}
+
+{% block body %}
+
+<h1>Statistiques</h1>
+
+<table class="table">
+    <tr>
+        <th>nb Tickets Total</th>
+        <td>{{ nbTicketsTotal }}</td>
+    </tr>
+    <tr>
+        <th>RAF Total</th>
+        <td>{{ rafTotal }}</td>
+    </tr>
+</table>
+
+{% if users is not empty %}
+    <div id="table-users-to-activate">
+        <h1>Nouveaux utilisateurs à approuver</h1>
+
+        <table class="table">
+            <thead>
+                <th>N° Compte TNT</th>
+                <th>Activer le compte</th>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr class="user">
+                        <th class="user-account"><span>{{ user.tntAccount }}</span></th>
+                        <td class="user-activate"><span id="activate-{{ user.id }}" class="btn btn-primary activate">Activer</span></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+jQuery(document).ready(function ($) {
+
+    $('.user').on('click', '.activate', function () {
+        activateUser($(this));
+    });
+
+	function activateUser(link) {
+        var id = link.attr('id').split('-')[1];
+
+        $.ajax({// update user "isValid" to "TRUE" + send email to user
+            url: '/admin/user/' + id + '/activate',
+            type: 'POST',
+            async: false,
+            success: function (data) {
+                var table        = link.parent().parent().parent();
+                var tableRow     = link.parent().parent();
+                var userAccount  = tableRow.find('.user-account');
+                var userActivate = tableRow.find('.user-activate');
+                // animation with success messages
+                tableRow.css('background', '#ddd');
+                userAccount.find('span').fadeOut(800);
+                userAccount.delay(800).append('<span class="glyphicon glyphicon-user"></span> <b>Compte activé</b>').fadeIn();
+                userActivate.find('span').fadeOut(800);
+                userActivate.delay(800).append('<span class="glyphicon glyphicon-send"></span> <b>Email envoyé</b>').fadeIn();
+                // hide user table row
+                tableRow.delay(5000).fadeOut();
+            },
+            error: function () {
+                console.log('Error when caling');
+            }
+        });
+    }
+ });
+</script>
+{% endblock %}
