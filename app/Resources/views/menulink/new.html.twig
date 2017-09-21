@@ -1,16 +1,64 @@
 {% extends 'base-admin.html.twig' %}
 
 {% block body %}
-    <h1>MenuLink creation</h1>
+    <h1>Menu link creation</h1>
+
+    <p><a href="{{ path('menulink_index') }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back to the list</a></p>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    <div class="form-group">
+        {{ form_label(form.menu) }}
+        {{ form_errors(form.menu) }}
+        {{ form_widget(form.menu, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.type) }}
+        {{ form_errors(form.type) }}
+        {{ form_widget(form.type, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class=" ml-filter ml-filter-custom-link">
+        <div class="form-group">
+            {{ form_label(form.target) }}
+            {{ form_errors(form.target) }}
+            {{ form_widget(form.target, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.text) }}
+            {{ form_errors(form.text) }}
+            {{ form_widget(form.text, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+    </div>
+    <div class="form-group ml-filter ml-filter-category">
+        {{ form_label(form.category) }}
+        {{ form_errors(form.category) }}
+        {{ form_widget(form.category, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group ml-filter ml-filter-page">
+        {{ form_label(form.page) }}
+        {{ form_errors(form.page) }}
+        {{ form_widget(form.page, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+        {{ form_rest(form) }}
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Create</button>
     {{ form_end(form) }}
+{% endblock %}
 
-    <ul>
-        <li>
-            <a href="{{ path('menulink_index') }}">Back to the list</a>
-        </li>
-    </ul>
+{% block javascripts %}
+    <script>
+        $('.ml-filter').hide();
+        $('#menu_link_type').on('change', function(){
+            var type = this.value;
+            console.log(type);
+            if(type == 'l') {
+                $('.ml-filter').hide();
+                $('.ml-filter-custom-link').show();
+            } else if(type == 'c') {
+                $('.ml-filter').hide();
+                $('.ml-filter-category').show();
+            } else if(type == 'p') {
+                $('.ml-filter').hide();
+                $('.ml-filter-page').show();
+            }
+        });
+    </script>
 {% endblock %}

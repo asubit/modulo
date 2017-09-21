@@ -47,6 +47,7 @@ class MenuLinkController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $menuLink->setCategory($em->getRepository('ModuloBundle:Category')->find($form["category"]->getData()));
             $em->persist($menuLink);
             $em->flush();
 

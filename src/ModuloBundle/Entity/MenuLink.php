@@ -24,6 +24,13 @@ class MenuLink
     /**
      * @var string
      *
+     * @ORM\Column(name="type", type="string", length=1)
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="target", type="string", length=2000, nullable=true)
      */
     private $target;
@@ -44,12 +51,14 @@ class MenuLink
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="links")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * @ORM\Column(nullable=true)
      */
     private $category;
 
     /**
      * @ORM\ManyToOne(targetEntity="Page", inversedBy="links")
      * @ORM\JoinColumn(name="page_id", referencedColumnName="id")
+     * @ORM\Column(nullable=true)
      */
     private $page;
 
@@ -62,6 +71,29 @@ class MenuLink
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return MenuLink
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
