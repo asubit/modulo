@@ -13,8 +13,6 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
         return $this->render('ModuloBundle:Default:index.html.twig');
     }
 
@@ -24,5 +22,29 @@ class DefaultController extends Controller
     public function adminAction()
     {
         return $this->render('ModuloBundle:Default:admin.html.twig');
+    }
+
+    public function menuAction($menu = 'top')
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $menu = $em->getRepository('ModuloBundle:Menu')
+            ->createQueryBuilder('m')
+            ->where('m.position = :position')
+            ->setParameter('position', $menu)
+            ->getQuery()
+            ->getOneOrNullResult();
+
+        $links = $em->getRepository('ModuloBundle:MenuLink')
+            ->createQueryBuilder('ml')
+            ->join('ml.menu', 'm')
+            ->where('m.position = :position')
+            ->setParameter('position', $menu)
+            ->getQuery()
+            ->getResult();
+        return $this->render('ModuloBundle:Default:menu-top.html.twig', array(
+            'menu' => $menu,
+            'links' => $links,
+        ));
     }
 }
