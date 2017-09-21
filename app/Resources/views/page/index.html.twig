@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-admin.html.twig' %}
 
 {% block title %}Page list{% endblock %}
 
@@ -24,14 +24,10 @@
                     <td>{{ page.content }}</td>
                     <td>{{ page.slug }}</td>
                     <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('page_show', { 'id': page.id }) }}">show</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('page_edit', { 'id': page.id }) }}">edit</a>
-                            </li>
-                        </ul>
+                        <div class="btn-group" role="group" aria-label="Actions">
+                                <a href="{{ path('page_show', { 'id': page.id }) }}" class="btn btn-default">show</a>
+                                <a href="{{ path('page_edit', { 'id': page.id }) }}" class="btn btn-default">edit</a>
+                        </div>
                     </td>
                 </tr>
             {% endfor %}

@@ -1,41 +1,41 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Menu links list{% endblock %}
+
+{% block pageheader %}Menu links list{% endblock %}
 
 {% block body %}
-    <h1>MenuLink list</h1>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Menu</th>
+                    <th>Target</th>
+                    <th>Text</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for menuLink in menuLinks %}
+                <tr>
+                    <td><a href="{{ path('menulink_show', { 'id': menuLink.id }) }}">{{ menuLink.id }}</a></td>
+                    <td><a href="{{ path('menu_show', { 'id': menuLink.menu.id }) }}">{{ menuLink.menu.title }}</td>
+                    <td>{{ menuLink.target }}</td>
+                    <td>{{ menuLink.text }}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Actions">
+                            <a href="{{ path('menulink_show', { 'id': menuLink.id }) }}" class="btn btn-default">show</a>
+                            <a href="{{ path('menulink_edit', { 'id': menuLink.id }) }}" class="btn btn-default">edit</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Target</th>
-                <th>Text</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for menuLink in menuLinks %}
-            <tr>
-                <td><a href="{{ path('menulink_show', { 'id': menuLink.id }) }}">{{ menuLink.id }}</a></td>
-                <td>{{ menuLink.target }}</td>
-                <td>{{ menuLink.text }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('menulink_show', { 'id': menuLink.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('menulink_edit', { 'id': menuLink.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('menulink_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+    <p>
+        <a href="{{ path('menulink_new') }}" class="btn btn-success">Create a new entry</a>
+    </p>
 {% endblock %}

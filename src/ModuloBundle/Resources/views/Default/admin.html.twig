@@ -7,11 +7,50 @@
 {% block body %}
     <div class="row-fluid">
         <div class="col-md-4">
-            <h2>Page</h2>
+            <h2><span class="glyphicon glyphicon-file"></span> Page</h2>
             <p>Manage and create many page as you want.</p>
             <p>
                 <a href="{{  path('page_new') }}" class="btn btn-primary">New page</a>
                 <a href="{{  path('page_index') }}" class="btn btn-default">Page list</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2><span class="glyphicon glyphicon-tags"></span> Category</h2>
+            <p>Manage and create categories.</p>
+            <p>
+                <a href="{{  path('category_new') }}" class="btn btn-primary">New category</a>
+                <a href="{{  path('category_index') }}" class="btn btn-default">Category list</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2><span class="glyphicon glyphicon-book"></span> Article</h2>
+            <p>Manage and create articles.</p>
+            <p>
+                <a href="{{  path('article_new') }}" class="btn btn-primary">New article</a>
+                <a href="{{  path('article_index') }}" class="btn btn-default">Article list</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2><span class="glyphicon glyphicon-list"></span> Menu</h2>
+            <p>Manage and create menus.</p>
+            <p>
+                <a href="{{  path('menu_new') }}" class="btn btn-primary">New menu</a>
+                <a href="{{  path('menu_index') }}" class="btn btn-default">Menu list</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2><span class="glyphicon glyphicon-link"></span> Menu links</h2>
+            <p>Manage and create menu links.</p>
+            <p>
+                <a href="{{  path('menulink_new') }}" class="btn btn-primary">New menu link</a>
+                <a href="{{  path('menulink_index') }}" class="btn btn-default">Menu link list</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2><span class="glyphicon glyphicon-cog"></span> Configuration</h2>
+            <p>Configure Modulo CMS and edit settings.</p>
+            <p>
+                <a href="{{  path('settings') }}" class="btn btn-primary">Settings</a>
             </p>
         </div>
     </div>

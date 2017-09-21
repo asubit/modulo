@@ -24,6 +24,14 @@ class DefaultController extends Controller
         return $this->render('ModuloBundle:Default:admin.html.twig');
     }
 
+    /**
+     * @Route("/admin/settings", name="settings")
+     */
+    public function settingsAction()
+    {
+        return $this->render('ModuloBundle:Default:settings.html.twig');
+    }
+
     public function menuAction($menu = 'top')
     {
         $em = $this->getDoctrine()->getManager();

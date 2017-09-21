@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Modulo{% endblock %}</title>
+    <title>Admin - {% block title %}Modulo{% endblock %}</title>
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <!-- Bootstrap -->
@@ -24,13 +24,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Modulo</a>
+            <a class="navbar-brand" href="{{ path('index') }}">Modulo</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">{{ app.user.username }}</a></li>
+                <li><a href="{{ path('admin') }}">Dashboard</a></li>
+                <li><a href="{{ path('settings') }}">Settings</a></li>
+                <li><a href="{{ path('fos_user_profile_show') }}">{% if app.user %}{{ app.user.username }}{% endif %}</a></li>
                 <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span></a></li>
                 <li><a href="#">Help</a></li>
             </ul>
@@ -45,10 +45,11 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Reports</a></li>
-                <li><a href="#">Analytics</a></li>
-                <li><a href="#">Export</a></li>
+                <li><a href="{{ path('page_index') }}">Pages</a></li>
+                <li><a href="{{ path('category_index') }}">Categories</a></li>
+                <li><a href="{{ path('article_index') }}">Articles</a></li>
+                <li><a href="{{ path('menu_index') }}">Menus</a></li>
+                <li><a href="{{ path('menulink_index') }}">Menu links</a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
