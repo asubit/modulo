@@ -1,7 +1,7 @@
 {% extends 'base-admin.html.twig' %}
 
 {% block body %}
-    <h1>Page creation</h1>
+    <h1>MenuLink creation</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -10,7 +10,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('page_index') }}">Back to the list</a>
+            <a href="{{ path('menulink_index') }}">Back to the list</a>
         </li>
     </ul>
 {% endblock %}
