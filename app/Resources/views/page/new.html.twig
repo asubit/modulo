@@ -1,16 +1,50 @@
 {% extends 'base-admin.html.twig' %}
 
 {% block body %}
+    <style>
+        [required]
+    </style>
     <h1>Page creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    <p><a href="{{ path('page_index') }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back to the list</a></p>
 
-    <ul>
-        <li>
-            <a href="{{ path('page_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.content) }}
+            {{ form_errors(form.content) }}
+            {{ form_widget(form.content, { 'attr': {'class': 'form-control tinymce'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.slug) }}
+            {{ form_errors(form.slug) }}
+            {{ form_widget(form.slug, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.head) }}
+            {{ form_errors(form.head) }}
+            {{ form_widget(form.head, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.footer) }}
+            {{ form_errors(form.footer) }}
+            {{ form_widget(form.footer, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.css) }}
+            {{ form_errors(form.css) }}
+            {{ form_widget(form.css, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.js) }}
+            {{ form_errors(form.js) }}
+            {{ form_widget(form.js, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        {{ form_rest(form) }}
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Create</button>
+    {{ form_end(form) }}
 {% endblock %}
