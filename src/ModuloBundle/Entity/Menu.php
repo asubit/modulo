@@ -41,9 +41,15 @@ class Menu
      */
     private $links;
 
+    /**
+     * @ORM\OneToMany(targetEntity="MenuWidget", mappedBy="menu")
+     */
+    private $widgets;
+
     public function __construct()
     {
         $this->links = new ArrayCollection();
+        $this->widgets = new ArrayCollection();
     }
 
 
@@ -134,5 +140,38 @@ class Menu
     public function getLinks()
     {
         return $this->links;
+    }
+
+    /**
+     * Add widgets
+     *
+     * @param \ModuloBundle\Entity\MenuWidget $widgets
+     * @return Menu
+     */
+    public function addWidget(\ModuloBundle\Entity\MenuWidget $widgets)
+    {
+        $this->widgets[] = $widgets;
+
+        return $this;
+    }
+
+    /**
+     * Remove widgets
+     *
+     * @param \ModuloBundle\Entity\MenuWidget $widgets
+     */
+    public function removeWidget(\ModuloBundle\Entity\MenuWidget $widgets)
+    {
+        $this->widgets->removeElement($widgets);
+    }
+
+    /**
+     * Get widgets
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getWidgets()
+    {
+        return $this->widgets;
     }
 }
