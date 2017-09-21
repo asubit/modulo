@@ -3,6 +3,7 @@
 namespace ModuloBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Page
@@ -69,6 +70,16 @@ class Page
      * @ORM\Column(name="js", type="text", nullable=true)
      */
     private $js;
+
+    /**
+     * @ORM\OneToMany(targetEntity="MenuLink", mappedBy="menu")
+     */
+    private $links;
+
+    public function __construct()
+    {
+        $this->links = new ArrayCollection();
+    }
 
 
     /**
@@ -240,5 +251,38 @@ class Page
     public function getJs()
     {
         return $this->js;
+    }
+
+    /**
+     * Add links
+     *
+     * @param \ModuloBundle\Entity\MenuLink $links
+     * @return Page
+     */
+    public function addLink(\ModuloBundle\Entity\MenuLink $links)
+    {
+        $this->links[] = $links;
+
+        return $this;
+    }
+
+    /**
+     * Remove links
+     *
+     * @param \ModuloBundle\Entity\MenuLink $links
+     */
+    public function removeLink(\ModuloBundle\Entity\MenuLink $links)
+    {
+        $this->links->removeElement($links);
+    }
+
+    /**
+     * Get links
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLinks()
+    {
+        return $this->links;
     }
 }
