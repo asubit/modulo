@@ -40,12 +40,6 @@ body {
   background: #F7F7F7;
   border: #EBEBEB;
 }
-.form-signin button:active.btn-lg, #btn-ok:active, input[type=submit].btn-primary:active {
-  background: #F7F7F7;
-  color: #FF6600;
-}
 .form-signin button.btn-lg, .form-signin button.btn-lg:hover, #btn-ok, input[type=submit], input[type=submit]:hover, input[type=submit].btn-primary:focus {
-  background: #FF6600;
-  color: white;
   border: none;
 }

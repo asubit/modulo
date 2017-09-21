@@ -1,4 +1,5 @@
-/.idea
+.idea/workspace.xml
+/.idea/*
 /web/uploads/
 /web/bundles/framework
 /app/bootstrap.php.cache

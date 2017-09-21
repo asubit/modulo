@@ -7,7 +7,7 @@
 }
 .form-signin input[type="password"] {
   margin-bottom: 34px;
-}
+}/*
 #username {
   background: url(../img/icon-compte.png) 11px 10px no-repeat;
   padding-left: 50px;
@@ -15,7 +15,7 @@
 #password {
   background: url(../img/icon-password.png) 11px 10px no-repeat;
   padding-left: 50px;
-}
+}*/
 a.link-reset {
   margin-top: 12px;
   text-decoration: underline;
