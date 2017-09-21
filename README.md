@@ -1,6 +1,18 @@
 Modulo
 ======
-by asubit
+by [asubit](https://github.com/asubit)
+
+This is a simple CMS platform developed with Symfony LTS 2.8.
+
+Architecture
+------------
+
+- Page
+- Category
+- Article
+- Menu
+- MenuLink
+- MenuWidget
 
 Symfony Standard Edition 2.8
 --------------
