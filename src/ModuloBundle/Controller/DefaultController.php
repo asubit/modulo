@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="index")
      */
     public function indexAction()
     {
@@ -17,7 +17,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/admin")
+     * @Route("/admin", name="admin")
      */
     public function adminAction()
     {

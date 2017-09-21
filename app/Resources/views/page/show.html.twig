@@ -1,56 +1,37 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ page.name }}{% endblock %}
+
+{% block pagehead %}{{ page.head }}{% endblock %}
+
+{% block pagecss %}{{ page.css }}{% endblock %}
+
 {% block body %}
-    <h1>Page</h1>
+    <h1>{{ page.name }}</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ page.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ page.name }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>{{ page.content }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ page.slug }}</td>
-            </tr>
-            <tr>
-                <th>Head</th>
-                <td>{{ page.head }}</td>
-            </tr>
-            <tr>
-                <th>Footer</th>
-                <td>{{ page.footer }}</td>
-            </tr>
-            <tr>
-                <th>Css</th>
-                <td>{{ page.css }}</td>
-            </tr>
-            <tr>
-                <th>Js</th>
-                <td>{{ page.js }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row-fluid">
+        <div class="col-md-12">
+            {{ page.content }}
+        </div>
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('page_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('page_edit', { 'id': page.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    {% if is_granted('ROLE_ADMIN') %}
+        <ul>
+            <li>
+                <a href="{{ path('page_index') }}">Back to the list</a>
+            </li>
+            <li>
+                <a href="{{ path('page_edit', { 'id': page.id }) }}">Edit</a>
+            </li>
+            <li>
+                {{ form_start(delete_form) }}
+                    <input type="submit" value="Delete">
+                {{ form_end(delete_form) }}
+            </li>
+        </ul>
+        {% endif %}
 {% endblock %}
+
+{% block pagefooter %}{{ page.footer }}{% endblock %}
+
+{% block pagejs %}{{ page.js }}{% endblock %}

@@ -13,6 +13,10 @@
         <link href="{{ asset('bundles/modulo/css/style.css') }}" rel="stylesheet">
         <!-- Tiny MCE -->
         {% block tinymce %}{% endblock %}
+        <!-- Extra custom page head section -->
+        {% block pagehead %}{% endblock %}
+        <!-- Extra custom page CSS section -->
+        {% block pagecss %}{% endblock %}
     </head>
     <body>
         {{ render(controller('ModuloBundle:Default:menu', {'menu': 'top'})) }}
@@ -34,6 +38,8 @@
                 </div>
             </div>
         </div>
+        <!-- Extra custom page footer section -->
+        {% block pagefooter %}{% endblock %}
         
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -41,5 +47,7 @@
         <script src="{{ asset('bundles/bootstrap/js/bootstrap.min.js') }}"></script>
         {% block javascripts %}
         {% endblock %}
+        <!-- Extra custom page JavaScript section -->
+        {% block pagejs %}{% endblock %}
     </body>
 </html>
