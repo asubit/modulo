@@ -51,17 +51,14 @@ class MenuLink
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="links")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     * @ORM\Column(nullable=true)
      */
     private $category;
 
     /**
      * @ORM\ManyToOne(targetEntity="Page", inversedBy="links")
      * @ORM\JoinColumn(name="page_id", referencedColumnName="id")
-     * @ORM\Column(nullable=true)
      */
     private $page;
-
 
     /**
      * Get id

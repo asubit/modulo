@@ -46,8 +46,8 @@ class MenuLinkController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //$menuLink = $form->getData();
             $em = $this->getDoctrine()->getManager();
-            $menuLink->setCategory($em->getRepository('ModuloBundle:Category')->find($form["category"]->getData()));
             $em->persist($menuLink);
             $em->flush();
 
@@ -90,7 +90,6 @@ class MenuLinkController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($menuLink);
             $em->flush();
 
             return $this->redirectToRoute('menulink_edit', array('id' => $menuLink->getId()));
