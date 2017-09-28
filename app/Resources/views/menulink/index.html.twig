@@ -5,6 +5,10 @@
 {% block pageheader %}Menu links list{% endblock %}
 
 {% block body %}
+    <p>
+        <a href="{{ path('menulink_new') }}" class="btn btn-success">Create a new entry</a>
+    </p>
+
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -46,8 +50,4 @@
             </tbody>
         </table>
     </div>
-
-    <p>
-        <a href="{{ path('menulink_new') }}" class="btn btn-success">Create a new entry</a>
-    </p>
 {% endblock %}
