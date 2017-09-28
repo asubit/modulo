@@ -19,9 +19,38 @@
         {% block pagecss %}{% endblock %}
     </head>
     <body>
+        {# ADMIN NAVBAR #}
+        {% if is_granted('ROLE_ADMIN') %}
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('index') }}">Modulo</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{ path('admin') }}">Dashboard</a></li>
+                        <li><a href="{{ path('settings') }}">Settings</a></li>
+                        <li><a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span></a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <input type="text" class="form-control" placeholder="Search...">
+                    </form>
+                </div>
+            </div>
+        </nav>
+        {% endif %}
+
         {{ render(controller('ModuloBundle:Default:menu', {'menu': 'top'})) }}
 
-        <div class="container-fluid">
+        <div class="container-fluid"{% if is_granted('ROLE_ADMIN') %} style="padding-top: 50px"{% endif %}>
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     {{ render(controller('ModuloBundle:Default:menu', {'menu': 'left'})) }}
