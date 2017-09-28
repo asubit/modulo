@@ -1,16 +1,29 @@
 {% extends 'base-admin.html.twig' %}
 
+{% block title %}Article creation{% endblock %}
+
 {% block body %}
     <h1>Article creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    <p><a href="{{ path('article_index') }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back to the list</a></p>
 
-    <ul>
-        <li>
-            <a href="{{ path('article_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.title) }}
+            {{ form_errors(form.title) }}
+            {{ form_widget(form.title, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.content) }}
+            {{ form_errors(form.content) }}
+            {{ form_widget(form.content, { 'attr': {'class': 'form-control tinymce'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.category) }}
+            {{ form_errors(form.category) }}
+            {{ form_widget(form.category, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+            {{ form_rest(form) }}
+    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Create</button>
+    {{ form_end(form) }}
 {% endblock %}

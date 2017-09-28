@@ -9,10 +9,12 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <!-- Bootstrap -->
     <link href="{{ asset('bundles/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Gfi styles -->
+    <!-- Modulo styles -->
+    <link href="{{ asset('bundles/modulo/css/admin.css') }}" rel="stylesheet">
     <link href="{{ asset('bundles/modulo/css/style.css') }}" rel="stylesheet">
     <!-- Tiny MCE -->
-    {% block tinymce %}{% endblock %}
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea.tinymce' });</script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">

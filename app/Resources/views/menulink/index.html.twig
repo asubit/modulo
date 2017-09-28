@@ -11,8 +11,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Menu</th>
-                    <th>Target</th>
-                    <th>Text</th>
+                    <th>Link</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -21,8 +20,21 @@
                 <tr>
                     <td><a href="{{ path('menulink_show', { 'id': menuLink.id }) }}">{{ menuLink.id }}</a></td>
                     <td><a href="{{ path('menu_show', { 'id': menuLink.menu.id }) }}">{{ menuLink.menu.title }}</td>
-                    <td>{{ menuLink.target }}</td>
-                    <td>{{ menuLink.text }}</td>
+                    <td>
+                        {% if menuLink.type == 'c' %}
+                            <a href="{{ path('category_show', { 'id': menuLink.category.id }) }}">
+                                {{ menuLink.category.title }}
+                            </a> <small>(category)</small>
+                        {% elseif menuLink.type == 'p' %}
+                            <a href="{{ path('page_show', { 'id': menuLink.page.id }) }}">
+                                {{ menuLink.page.name }}
+                            </a> <small>(page)</small>
+                        {% else %}
+                            <a href="{{ menuLink.target }}">
+                                {{ menuLink.text }}
+                            </a> <small>(custom)</small>
+                        {% endif %}
+                    </td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Actions">
                             <a href="{{ path('menulink_show', { 'id': menuLink.id }) }}" class="btn btn-default">show</a>

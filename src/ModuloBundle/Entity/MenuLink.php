@@ -24,6 +24,13 @@ class MenuLink
     /**
      * @var string
      *
+     * @ORM\Column(name="type", type="string", length=1)
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="target", type="string", length=2000, nullable=true)
      */
     private $target;
@@ -53,7 +60,6 @@ class MenuLink
      */
     private $page;
 
-
     /**
      * Get id
      *
@@ -62,6 +68,29 @@ class MenuLink
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return MenuLink
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**

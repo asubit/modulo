@@ -16,7 +16,15 @@ class MenuType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('position')
+            ->add('position', 'choice', array(
+                'choices'   => array(
+                    '' => 'Select menu position',
+                    'top' => 'Navbar top',
+                    'left' => 'Column left',
+                    'right' => 'Column right'
+                ),
+                'required'  => true,
+            ))
         ;
     }
     

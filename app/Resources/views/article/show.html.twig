@@ -11,7 +11,7 @@
     </ol>
 
     <div class="row-fluid">
-        <div class="col-md-12">{{ article.content }}</div>
+        <div class="col-md-12">{{ article.content|raw }}</div>
     </div>
 
     {% if is_granted('ROLE_ADMIN') %}

@@ -17,7 +17,15 @@ class ArticleType extends AbstractType
         $builder
             ->add('title')
             ->add('content')
-            ->add('category')
+            ->add('category', 'entity', array(
+                'class' => 'ModuloBundle:Category',
+                'choice_label' => 'title',
+                'empty_data' => 'Select category...',
+                'label' => 'Category',
+                'required' => false,
+                'expanded' => false,
+                'multiple' => false,
+            ))
         ;
     }
     

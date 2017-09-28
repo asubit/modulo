@@ -1,8 +1,8 @@
-{# Menu widgets #}
+{# MENU WIDGETS #}
 {%  set widgets = menu.widgets %}
-{# Menu widgets instances #}
+{# widgets instances #}
 {% set widgetSearch, widgetTitle = null, null %}
-{# Menu widgets definitions #}
+{# widgets definitions #}
 {%  if widgets %}
     {% for widget in widgets %}
         {# Menu widget "Form search" #}
@@ -15,6 +15,9 @@
         {% endif %}
     {% endfor %}
 {% endif %}
+
+{# MENU TOP as NAVBAR #}
+{%  if menu.position == 'top' %}
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -24,9 +27,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            {% if widgetTitle is defined %}
+            {% if widgetTitle %}
                 <!-- Menu widget "Link title" -->
-                 <a class="navbar-brand" href="#">{{ widgetTitle.value }}</a>
+                 <a class="navbar-brand" href="{{  path('index') }}">{% if widgetTitle.value %}{{ widgetTitle.value }}{% endif %}</a>
             {% endif %}
 
         </div>
@@ -48,12 +51,49 @@
                 </ul>
             {% endif %}
 
-            {% if widgetSearch is defined %}
+            {% if widgetSearch %}
                 <!-- Menu widget "Form search" -->
                 <form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" placeholder="{{ widgetSearch.value }}">
+                    <input type="text" class="form-control" placeholder="{% if widgetSearch.value %}{{ widgetSearch.value }}{% endif %}">
+                    <input type="text" class="form-control" placeholder="{% if widgetSearch.value %}{{ widgetSearch.value }}{% endif %}">
                 </form>
             {% endif %}
         </div>
     </div>
 </nav>
+
+{# MENU LEFT as SIDEBAR #}
+{% elseif menu.position =='left' %}
+    {% if menu.links %}
+        <ul class="nav nav-sidebar">
+            {% for link in menu.links %}
+            <li>
+                {% if link.page is not null %}
+                    <a href="/page/{{ link.page.id }}">{{ link.page.name }}</a>
+                {% elseif link.category is not null %}
+                    <a href="/category/{{ link.category.id }}">{{ link.category.title }}</a>
+                {% else %}
+                    <a href="{{ link.target }}">{{ link.text }}</a>
+                {% endif %}
+            </li>
+            {%  endfor %}
+        </ul>
+    {% endif %}
+{# MENU CUSTOM as LIST#}
+{% else %}
+    {% if menu.links %}
+    <ul>
+        {% for link in menu.links %}
+            <li>
+                {% if link.page is not null %}
+                    <a href="/page/{{ link.page.id }}">{{ link.page.name }}</a>
+                {% elseif link.category is not null %}
+                    <a href="/category/{{ link.category.id }}">{{ link.category.title }}</a>
+                {% else %}
+                    <a href="{{ link.target }}">{{ link.text }}</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endif %}

@@ -1,0 +1,7 @@
+/*
+ * Form admin
+ */
+label.required:after {
+    color: red;
+    content: " *";
+}
