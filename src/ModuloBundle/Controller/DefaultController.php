@@ -50,7 +50,7 @@ class DefaultController extends Controller
             ->setParameter('position', $menu)
             ->getQuery()
             ->getResult();
-        return $this->render('ModuloBundle:Default:menu-top.html.twig', array(
+        return $this->render('ModuloBundle:Default:menu.html.twig', array(
             'menu' => $menu,
             'links' => $links,
         ));

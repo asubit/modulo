@@ -1,8 +1,8 @@
-{# Menu widgets #}
+{# MENU WIDGETS #}
 {%  set widgets = menu.widgets %}
-{# Menu widgets instances #}
+{# widgets instances #}
 {% set widgetSearch, widgetTitle = null, null %}
-{# Menu widgets definitions #}
+{# widgets definitions #}
 {%  if widgets %}
     {% for widget in widgets %}
         {# Menu widget "Form search" #}
@@ -15,6 +15,9 @@
         {% endif %}
     {% endfor %}
 {% endif %}
+
+{# MENU TOP as NAVBAR #}
+{%  if menu.position == 'top' %}
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -26,7 +29,7 @@
             </button>
             {% if widgetTitle %}
                 <!-- Menu widget "Link title" -->
-                 <a class="navbar-brand" href="#">{% if widgetTitle.value %}{{ widgetTitle.value }}{% endif %}</a>
+                 <a class="navbar-brand" href="{{  path('index') }}">{% if widgetTitle.value %}{{ widgetTitle.value }}{% endif %}</a>
             {% endif %}
 
         </div>
@@ -58,3 +61,39 @@
         </div>
     </div>
 </nav>
+
+{# MENU LEFT as SIDEBAR #}
+{% elseif menu.position =='left' %}
+    {% if menu.links %}
+        <ul class="nav nav-sidebar">
+            {% for link in menu.links %}
+            <li>
+                {% if link.page is not null %}
+                    <a href="/page/{{ link.page.id }}">{{ link.page.name }}</a>
+                {% elseif link.category is not null %}
+                    <a href="/category/{{ link.category.id }}">{{ link.category.title }}</a>
+                {% else %}
+                    <a href="{{ link.target }}">{{ link.text }}</a>
+                {% endif %}
+            </li>
+            {%  endfor %}
+        </ul>
+    {% endif %}
+{# MENU CUSTOM as LIST#}
+{% else %}
+    {% if menu.links %}
+    <ul>
+        {% for link in menu.links %}
+            <li>
+                {% if link.page is not null %}
+                    <a href="/page/{{ link.page.id }}">{{ link.page.name }}</a>
+                {% elseif link.category is not null %}
+                    <a href="/category/{{ link.category.id }}">{{ link.category.title }}</a>
+                {% else %}
+                    <a href="{{ link.target }}">{{ link.text }}</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endif %}
