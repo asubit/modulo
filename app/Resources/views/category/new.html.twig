@@ -2,9 +2,9 @@
 
 {% block title %}Category creation{% endblock %}
 
-{% block body %}
-    <h1>Category creation</h1>
+{% block pageheader %}Category creation{% endblock %}
 
+{% block body %}
     <p><a href="{{ path('category_index') }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back to the list</a></p>
 
     {{ form_start(form) }}
