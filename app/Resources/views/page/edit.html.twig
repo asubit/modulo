@@ -2,9 +2,9 @@
 
 {% block title %}Page edition{% endblock %}
 
-{% block body %}
-    <h1>{{ page.name }} <small>edition</small></h1>
+{% block pageheader %}{{ page.name }} <small>edition</small>{% endblock %}
 
+{% block body %}
     <p><a href="{{ path('page_index') }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back to the list</a></p>
 
     {{ form_start(edit_form) }}
