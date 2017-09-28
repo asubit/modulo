@@ -24,16 +24,16 @@
                         {% if menuLink.type == 'c' %}
                             <a href="{{ path('category_show', { 'id': menuLink.category.id }) }}">
                                 {{ menuLink.category.title }}
-                            </a>
+                            </a> <small>(category)</small>
                         {% elseif menuLink.type == 'p' %}
                             <a href="{{ path('page_show', { 'id': menuLink.page.id }) }}">
                                 {{ menuLink.page.name }}
-                            </a>
+                            </a> <small>(page)</small>
                         {% else %}
                             <a href="{{ menuLink.target }}">
                                 {{ menuLink.text }}
-                            </a>
-                    {% endif %}
+                            </a> <small>(custom)</small>
+                        {% endif %}
                     </td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Actions">
