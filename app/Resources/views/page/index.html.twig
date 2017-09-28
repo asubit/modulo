@@ -5,11 +5,14 @@
 {% block pageheader %}Page list{% endblock %}
 
 {% block body %}
+    <p>
+        <a href="{{ path('page_new') }}" class="btn btn-success">Create a new entry</a>
+    </p>
+
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Name</th>
                     <th>Content</th>
                     <th>Slug</th>
@@ -19,9 +22,8 @@
             <tbody>
             {% for page in pages %}
                 <tr>
-                    <td><a href="{{ path('page_show', { 'id': page.id }) }}">{{ page.id }}</a></td>
-                    <td>{{ page.name }}</td>
-                    <td>{{ page.content }}</td>
+                    <td><a href="{{ path('page_show', { 'id': page.id }) }}">{{ page.name }}</a></td>
+                    <td>{{ page.content|slice(0,100) }}</td>
                     <td>{{ page.slug }}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Actions">
@@ -34,8 +36,4 @@
             </tbody>
         </table>
     </div>
-
-    <p>
-        <a href="{{ path('page_new') }}" class="btn btn-success">Create a new entry</a>
-    </p>
 {% endblock %}

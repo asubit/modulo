@@ -1,8 +1,10 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block body %}
-    <h1>Page creation</h1>
+{% block title %}Page creation{% endblock %}
 
+{% block pageheader %}Page creation{% endblock %}
+
+{% block body %}
     <p><a href="{{ path('page_index') }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back to the list</a></p>
 
     {{ form_start(form) }}

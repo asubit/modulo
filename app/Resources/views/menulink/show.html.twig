@@ -1,36 +1,47 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block body %}
-    <h1>MenuLink</h1>
+{% block title %}Menu link show{% endblock %}
 
-    <table>
+{% block pageheader %}Menu link #{{  menuLink.id }}{% endblock %}
+
+{% block body %}
+    <p>
+        <div class="btn-group" role="group" aria-label="actions">
+            <a href="{{ path('menulink_index') }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back to the list</a>
+            <a href="{{ path('menulink_edit', { 'id': menuLink.id }) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+        </div>
+    </p>
+
+    <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ menuLink.id }}</td>
             </tr>
             <tr>
-                <th>Target</th>
-                <td>{{ menuLink.target }}</td>
-            </tr>
-            <tr>
-                <th>Text</th>
-                <td>{{ menuLink.text }}</td>
+                <th>Link</th>
+                <td>
+                    {% if menuLink.type == 'c' %}
+                        <a href="{{ path('category_show', { 'id': menuLink.category.id }) }}">
+                            {{ menuLink.category.title }}
+                        </a> <small>(category)</small>
+                    {% elseif menuLink.type == 'p' %}
+                        <a href="{{ path('page_show', { 'id': menuLink.page.id }) }}">
+                            {{ menuLink.page.name }}
+                        </a> <small>(page)</small>
+                    {% else %}
+                        <a href="{{ menuLink.target }}">
+                            {{ menuLink.text }}
+                        </a> <small>(custom)</small>
+                    {% endif %}
+                </td>
             </tr>
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('menulink_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('menulink_edit', { 'id': menuLink.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <hr />
+
+    {{ form_start(delete_form) }}
+        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+    {{ form_end(delete_form) }}
 {% endblock %}

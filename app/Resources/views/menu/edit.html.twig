@@ -1,21 +1,30 @@
 {% extends 'base-admin.html.twig' %}
 
+{% block title %} {{ menu.title }} edition{% endblock %}
+
+{% block pageheader %}{{ menu.title }} <small>edition</small>{% endblock %}
+
 {% block body %}
-    <h1>Menu edit</h1>
+    <p><a href="{{ path('menu_index') }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back to the list</a></p>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <div class="form-group">
+            {{ form_label(edit_form.title) }}
+            {{ form_errors(edit_form.title) }}
+            {{ form_widget(edit_form.title, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(edit_form.position) }}
+            {{ form_errors(edit_form.position) }}
+            {{ form_widget(edit_form.position, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        {{ form_rest(edit_form) }}
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Create</button>
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('menu_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <hr />
+
+    {{ form_start(delete_form) }}
+        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+    {{ form_end(delete_form) }}
 {% endblock %}

@@ -2,12 +2,17 @@
 
 {% block title %}Article creation{% endblock %}
 
-{% block body %}
-    <h1>Article creation</h1>
+{% block pageheader %}Article creation{% endblock %}
 
+{% block body %}
     <p><a href="{{ path('article_index') }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back to the list</a></p>
 
     {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.category) }}
+            {{ form_errors(form.category) }}
+            {{ form_widget(form.category, { 'attr': {'class': 'form-control'} }) }}
+        </div>
         <div class="form-group">
             {{ form_label(form.title) }}
             {{ form_errors(form.title) }}
@@ -17,11 +22,6 @@
             {{ form_label(form.content) }}
             {{ form_errors(form.content) }}
             {{ form_widget(form.content, { 'attr': {'class': 'form-control tinymce'} }) }}
-        </div>
-        <div class="form-group">
-            {{ form_label(form.category) }}
-            {{ form_errors(form.category) }}
-            {{ form_widget(form.category, { 'attr': {'class': 'form-control'} }) }}
         </div>
             {{ form_rest(form) }}
     <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Create</button>

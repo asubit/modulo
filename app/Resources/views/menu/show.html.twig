@@ -2,9 +2,9 @@
 
 {% block title %} {{ menu.title }} {% endblock %}
 
-{% block body %}
-    <h1>Menu</h1>
+{% block pageheader %}{{ menu.title }}{% endblock %}
 
+{% block body %}
     <p>
         <div class="btn-group" role="group" aria-label="actions">
             <a href="{{ path('menu_index') }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back to the list</a>

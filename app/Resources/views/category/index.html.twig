@@ -5,11 +5,14 @@
 {% block pageheader %}Category list{% endblock %}
 
 {% block body %}
+    <p>
+        <a href="{{ path('category_new') }}" class="btn btn-success">Create a new entry</a>
+    </p>
+
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Title</th>
                     <th>Actions</th>
                 </tr>
@@ -17,8 +20,7 @@
             <tbody>
             {% for category in categories %}
                 <tr>
-                    <td><a href="{{ path('category_show', { 'id': category.id }) }}">{{ category.id }}</a></td>
-                    <td>{{ category.title }}</td>
+                    <td><a href="{{ path('category_show', { 'id': category.id }) }}">{{ category.title }}</a></td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Actions">
                             <a href="{{ path('category_show', { 'id': category.id }) }}" class="btn btn-default">show</a>
@@ -30,8 +32,4 @@
             </tbody>
         </table>
     </div>
-
-    <p>
-        <a href="{{ path('category_new') }}" class="btn btn-success">Create a new entry</a>
-    </p>
 {% endblock %}

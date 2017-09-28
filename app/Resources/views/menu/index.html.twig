@@ -5,11 +5,14 @@
 {% block pageheader %}Menu list{% endblock %}
 
 {% block body %}
+    <p>
+        <a href="{{ path('menu_new') }}" class="btn btn-success">Create a new entry</a>
+    </p>
+
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Title</th>
                     <th>Position</th>
                     <th>Actions</th>
@@ -18,8 +21,7 @@
             <tbody>
             {% for menu in menus %}
                 <tr>
-                    <td><a href="{{ path('menu_show', { 'id': menu.id }) }}">{{ menu.id }}</a></td>
-                    <td>{{ menu.title }}</td>
+                    <td><a href="{{ path('menu_show', { 'id': menu.id }) }}">{{ menu.title }}</a></td>
                     <td>{{ menu.position }}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Actions">
@@ -32,8 +34,4 @@
             </tbody>
         </table>
     </div>
-
-    <p>
-        <a href="{{ path('menu_new') }}" class="btn btn-success">Create a new entry</a>
-    </p>
 {% endblock %}

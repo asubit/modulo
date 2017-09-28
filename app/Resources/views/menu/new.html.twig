@@ -2,9 +2,9 @@
 
 {% block title %}Menu creation{% endblock %}
 
-{% block body %}
-    <h1>Menu creation</h1>
+{% block pageheader %}Menu creation{% endblock %}
 
+{% block body %}
     <p><a href="{{ path('menu_index') }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back to the list</a></p>
 
     {{ form_start(form) }}
