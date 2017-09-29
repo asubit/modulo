@@ -1,37 +1,29 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-admin.html.twig' %}
 
-{% block title %}{{ page.name }}{% endblock %}
+{% block title %} {{ page.name }} {% endblock %}
 
-{% block pagehead %}{{ page.head }}{% endblock %}
-
-{% block pagecss %}{{ page.css }}{% endblock %}
+{% block pageheader %}{{ page.name }}{% endblock %}
 
 {% block body %}
-    <h1>{{ page.name }}</h1>
-
-    <div class="row-fluid">
-        <div class="col-md-12">
-            {{ page.content|raw }}
-        </div>
+    <p>
+    <div class="btn-group" role="group" aria-label="actions">
+        <a href="{{ path('page_index') }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back to the list</a>
+        <a href="{{ path('page_edit', { 'id': page.id }) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a>
     </div>
+    </p>
 
-    {% if is_granted('ROLE_ADMIN') %}
-        <ul>
-            <li>
-                <a href="{{ path('page_index') }}">Back to the list</a>
-            </li>
-            <li>
-                <a href="{{ path('page_edit', { 'id': page.id }) }}">Edit</a>
-            </li>
-            <li>
-                {{ form_start(delete_form) }}
-                    <input type="submit" value="Delete">
-                {{ form_end(delete_form) }}
-            </li>
-        </ul>
-        {% endif %}
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <td>{{ page.id }}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ page.name }}</td>
+        </tr>
+        <tr>
+            <th>Content</th>
+            <td>{{ page.content|raw }}</td>
+        </tr>
+    </table>
 {% endblock %}
-
-{% block pagefooter %}{{ page.footer }}{% endblock %}
-
-{% block pagejs %}{{ page.js }}{% endblock %}

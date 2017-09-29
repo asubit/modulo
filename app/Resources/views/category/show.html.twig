@@ -1,39 +1,43 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-admin.html.twig' %}
 
-{% block title %}{{ category.title }}{% endblock %}
+{% block title %} {{ category.title }} {% endblock %}
+
+{% block pageheader %}{{ category.title }}{% endblock %}
 
 {% block body %}
-    <h1>{{ category.title }}</h1>
-
-    <div class="row-fluid">
-        <div class="col-md-12">
-            {%  for article in category.articles %}
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{ article.title }}</h3>
-                </div>
-                <div class="panel-body">
-                    <p>{{ article.content|slice(0, 200) }}</p>
-                    <p><a href="{{ path('article_show', {'id': article.id}) }}">Voir l'article</a></p>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+<p>
+    <div class="btn-group" role="group" aria-label="actions">
+        <a href="{{ path('category_index') }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back to the list</a>
+        <a href="{{ path('category_edit', { 'id': category.id }) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a>
     </div>
+</p>
 
-    {% if is_granted('ROLE_ADMIN') %}
-        <ul>
-            <li>
-                <a href="{{ path('category_index') }}">Back to the list</a>
-            </li>
-            <li>
-                <a href="{{ path('category_edit', { 'id': category.id }) }}">Edit</a>
-            </li>
-            <li>
-                {{ form_start(delete_form) }}
-                    <input type="submit" value="Delete">
-                {{ form_end(delete_form) }}
-            </li>
-        </ul>
-    {% endif %}
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <td>{{ category.id }}</td>
+    </tr>
+    <tr>
+        <th>Title</th>
+        <td>{{ category.title }}</td>
+    </tr>
+    <tr>
+        <th>Articles</th>
+        <td>
+            <table class="table table-bordered">
+                {% for article in category.articles %}
+                <tr>
+                    <td>{{ article.title }}</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="{{ path('article_show', {'id': article.id}) }}" class="btn btn-default">show</a>
+                            <a href="{{ path('article_edit', {'id': article.id}) }}" class="btn btn-default">edit</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </td>
+    </tr>
+</table>
 {% endblock %}

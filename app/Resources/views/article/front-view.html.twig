@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block pageheader %}{{ article.title }}{% endblock %}
+
+{% block body %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path('index') }}">Home</a></li>
+        <li><a href="{{ path('category_front_view', {'id': article.category.id}) }}">{{ article.category.title }}</a></li>
+        <li class="active">{{ article.title }}</li>
+    </ol>
+
+    <div class="row-fluid">
+        <div class="col-md-12">{{ article.content|raw }}</div>
+    </div>
+{% endblock %}

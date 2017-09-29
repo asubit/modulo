@@ -23,7 +23,7 @@
             {% for article in articles %}
                 <tr>
                     <td><a href="{{ path('category_show', { 'id': article.category.id }) }}">{{ article.category.title }}</a></td>
-                    <td><a href="{{ path('article_show', { 'id': article.title }) }}">{{ article.title }}</a></td>
+                    <td><a href="{{ path('article_show', { 'id': article.id }) }}">{{ article.title }}</a></td>
                     <td>{{ article.content|slice(0,100) }}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Actions">

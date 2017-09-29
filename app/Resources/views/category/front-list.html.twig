@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category list{% endblock %}
+
+{% block pageheader %}Category list{% endblock %}
+
+{% block body %}
+    <div class="row-fluid">
+        <div class="col-md-12">
+            {%  for category in categories %}
+                <h2>{{ category.title }}</h2>
+                {%  for article in category.articles %}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{ article.title }}</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>{{ article.content|slice(0, 200) }}</p>
+                            <p><a href="{{ path('article_show', {'id': article.id}) }}">Voir l'article</a></p>
+                        </div>
+                    </div>
+                {% endfor %}
+                <hr />
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

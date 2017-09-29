@@ -12,7 +12,7 @@ use ModuloBundle\Form\PageType;
 /**
  * Page controller.
  *
- * @Route("/page")
+ * @Route("/admin/page")
  */
 class PageController extends Controller
 {

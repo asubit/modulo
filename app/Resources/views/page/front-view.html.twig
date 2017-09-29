@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ page.name }}{% endblock %}
+
+{% block pageheader %}{{ page.name }}{% endblock %}
+
+{% block pagecss %}{{ page.css }}{% endblock %}
+
+{% block body %}
+    <div class="page-content">
+        {{ page.content|raw }}
+    </div>
+{% endblock %}
+
+{% block pagefooter %}{{ page.footer }}{% endblock %}
+
+{% block pagejs %}{{ page.js }}{% endblock %}

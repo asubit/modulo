@@ -12,7 +12,7 @@ use ModuloBundle\Form\ArticleType;
 /**
  * Article controller.
  *
- * @Route("/article")
+ * @Route("/admin/article")
  */
 class ArticleController extends Controller
 {

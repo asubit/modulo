@@ -1,32 +1,35 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-admin.html.twig' %}
 
 {% block title %}{{ article.title }}{% endblock %}
+
+{% block pageheader %}{{ article.title }}{% endblock %}
+
 {% block body %}
-    <h1>{{ article.title }}</h1>
+    <p>
+        <div class="btn-group" role="group" aria-label="actions">
+            <a href="{{ path('article_index') }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Back to the list</a>
+            <a href="{{ path('article_edit', { 'id': article.id }) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+        </div>
+    </p>
 
-    <ol class="breadcrumb">
-        <li><a href="{{ path('index') }}">Home</a></li>
-        <li><a href="{{ path('category_show', {'id': article.category.id}) }}">{{ article.category.title }}</a></li>
-        <li class="active">{{ article.title }}</li>
-    </ol>
-
-    <div class="row-fluid">
-        <div class="col-md-12">{{ article.content|raw }}</div>
-    </div>
-
-    {% if is_granted('ROLE_ADMIN') %}
-        <ul>
-            <li>
-                <a href="{{ path('article_index') }}">Back to the list</a>
-            </li>
-            <li>
-                <a href="{{ path('article_edit', { 'id': article.id }) }}">Edit</a>
-            </li>
-            <li>
-                {{ form_start(delete_form) }}
-                    <input type="submit" value="Delete">
-                {{ form_end(delete_form) }}
-            </li>
-        </ul>
-    {% endif %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td><a href="{{ path('category_show', { 'id': article.category.id }) }}">{{ article.category.title }}</a></td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ article.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ article.content|raw }}</td>
+            </tr>
+        </tbody>
+    </table>
 {% endblock %}
