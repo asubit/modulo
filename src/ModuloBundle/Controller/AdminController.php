@@ -24,4 +24,17 @@ class AdminController extends Controller
     {
         return $this->render('ModuloBundle:Default:settings.html.twig');
     }
+
+    /**
+     * Generate admin menu
+     * @param string $position
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function menuAdminAction($position = 'top')
+    {
+        // Render admin menu block
+        return $this->render('ModuloBundle:Default:menu-admin.html.twig', array(
+            'position' => $position
+        ));
+    }
 }

@@ -1,0 +1,32 @@
+<nav class="navbar navbar-inverse navbar-fixed-{{ position }}">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('admin') }}">Modulo</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ path('index') }}"><span class="glyphicon glyphicon-home"></span> Frontend</a></li>
+                <li><a href="{{ path('admin') }}"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+                <li><a href="{{ path('settings') }}"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-user"></span> {% if app.user %}{{ app.user.username }}{% endif %} <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('fos_user_profile_show') }}">Your profil</a></li>
+                        <li><a href="{{ path('fos_user_profile_edit') }}">Profil edition</a></li>
+                        <li><a href="{{ path('fos_user_change_password') }}">Change password</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
